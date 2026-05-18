@@ -96,8 +96,8 @@ export default function Hero() {
                 alt="Círculo de Escucha"
                 className="w-full aspect-video object-cover"
               />
-              {/* Overlay oscuro suave */}
-              <div className="absolute inset-0 bg-verde/30 group-hover:bg-verde/20 transition-colors duration-300" />
+              {/* Overlay muy sutil al hover */}
+              <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-300" />
               {/* Play button */}
               <div className="absolute inset-0 flex items-center justify-center">
                 <div className="w-16 h-16 rounded-full bg-white/90 group-hover:bg-white group-hover:scale-110 transition-all duration-300 flex items-center justify-center shadow-lg">
@@ -127,7 +127,8 @@ export default function Hero() {
               <div className="flex flex-col items-center sm:items-start gap-1">
                 <Link
                   href="/circulos"
-                  className="inline-flex items-center justify-center gap-2 border-2 border-verde/30 hover:border-verde text-verde font-sans font-medium px-7 py-3.5 rounded-full transition-colors text-base"
+                  className="inline-flex items-center justify-center gap-2 text-white font-sans font-medium px-7 py-3.5 rounded-full transition-opacity hover:opacity-90 text-base"
+                  style={{ backgroundColor: "#1CBF45" }}
                 >
                   Recibe un asiento
                 </Link>
@@ -261,7 +262,7 @@ export function CircleOfChairs({
       <circle
         cx={cx} cy={cy} r={radius}
         fill="none"
-        stroke="#1A5C2E"
+        stroke="#9B9B9B"
         strokeWidth="0.6"
         strokeDasharray="4 7"
         opacity="0.1"
@@ -275,7 +276,7 @@ export function CircleOfChairs({
           <line
             key={`line-${i}`}
             x1={cx} y1={cy} x2={x} y2={y}
-            stroke={lit ? "#C8197A" : "#1A5C2E"}
+            stroke={lit ? "#C8197A" : "#9B9B9B"}
             strokeWidth={lit ? "1" : "0.5"}
             opacity={lit ? 0.18 : 0.07}
           />
