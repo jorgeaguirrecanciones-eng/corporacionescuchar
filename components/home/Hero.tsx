@@ -261,7 +261,7 @@ export function CircleOfChairs({
       <circle
         cx={cx} cy={cy} r={radius}
         fill="none"
-        stroke="#3A2878"
+        stroke="#1A5C2E"
         strokeWidth="0.6"
         strokeDasharray="4 7"
         opacity="0.1"
@@ -275,7 +275,7 @@ export function CircleOfChairs({
           <line
             key={`line-${i}`}
             x1={cx} y1={cy} x2={x} y2={y}
-            stroke={lit ? "#C8197A" : "#3A2878"}
+            stroke={lit ? "#C8197A" : "#1A5C2E"}
             strokeWidth={lit ? "1" : "0.5"}
             opacity={lit ? 0.18 : 0.07}
           />

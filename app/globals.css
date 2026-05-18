@@ -9,9 +9,9 @@
   --color-terracota: #C8197A;       /* magenta — círculo dominante del logo */
   --color-terracota-light: #E040A0;
   --color-terracota-dark: #A0146A;
-  --color-verde: #3A2878;           /* morado profundo — círculo morado del logo */
-  --color-verde-light: #5A44A8;
-  --color-verde-dark: #221558;
+  --color-verde: #1A5C2E;           /* verde oscuro — círculo verde del logo */
+  --color-verde-light: #2D8A48;
+  --color-verde-dark: #0D3318;
   --color-beige: #F5EFE6;
   --color-beige-dark: #EDE4D5;
 
@@ -49,18 +49,18 @@
 
 :root {
   --background: #ffffff;
-  --foreground: #3A2878;
+  --foreground: #1A5C2E;
   --card: #ffffff;
-  --card-foreground: #3A2878;
+  --card-foreground: #1A5C2E;
   --popover: #ffffff;
-  --popover-foreground: #3A2878;
+  --popover-foreground: #1A5C2E;
   --primary: #C8197A;
   --primary-foreground: #ffffff;
   --secondary: #F5EFE6;
-  --secondary-foreground: #3A2878;
+  --secondary-foreground: #1A5C2E;
   --muted: #F5EFE6;
-  --muted-foreground: #6a5a9a;
-  --accent: #3A2878;
+  --muted-foreground: #3a7a50;
+  --accent: #1A5C2E;
   --accent-foreground: #ffffff;
   --destructive: #dc2626;
   --border: #e2ddd6;
