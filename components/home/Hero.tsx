@@ -45,6 +45,9 @@ export default function Hero() {
       return () => clearTimeout(t);
     }
 
+    // Pausar cuando faltan exactamente 3 — el visitante siente que puede completar el círculo
+    if (litCount === TOTAL - 3) return;
+
     // Avanzar al siguiente donante
     const t = setTimeout(() => {
       setVisible(false);
@@ -106,11 +109,21 @@ export default function Hero() {
               </div>
             </div>
 
-            {/* Ticker — sincronizado con el círculo */}
-            <div className="mt-8">
+          </div>
+
+          {/* Right: círculo + ticker + mensaje — todo dentro del box beige */}
+          <div className="flex justify-center">
+            <div className="w-full max-w-sm bg-beige rounded-3xl flex flex-col items-center p-6 gap-4">
+
+              {/* Círculo */}
+              <div className="w-full aspect-square flex items-center justify-center">
+                <CircleOfChairs litCount={litCount} size={320} radius={118} />
+              </div>
+
+              {/* Ticker — quién acaba de donar */}
               <div
                 style={{ transition: "opacity 350ms ease" }}
-                className={`inline-flex items-center gap-2.5 bg-beige px-4 py-2 rounded-full ${visible ? "opacity-100" : "opacity-0"}`}
+                className={`inline-flex items-center gap-2.5 bg-white/70 px-4 py-2 rounded-full ${visible ? "opacity-100" : "opacity-0"}`}
               >
                 <Heart size={13} className="text-terracota shrink-0" fill="currentColor" />
                 {complete ? (
@@ -120,48 +133,39 @@ export default function Hero() {
                 ) : (
                   <span className="text-sm font-sans text-verde/70 whitespace-nowrap">
                     <span className="font-semibold text-verde">{name}</span>
-                    {" acaba de regalar "}
+                    {" ya regaló "}
                     <span className="font-semibold text-terracota">
                       {seats} {seats === 1 ? "asiento" : "asientos"}
                     </span>
                   </span>
                 )}
               </div>
-            </div>
-          </div>
 
-          {/* Right: círculo sincronizado */}
-          <div className="flex flex-col items-center gap-4">
-            <div className="w-full max-w-sm aspect-square bg-beige rounded-3xl flex items-center justify-center p-6">
-              <CircleOfChairs litCount={litCount} size={320} radius={118} />
-            </div>
+              {/* Mensaje de urgencia */}
+              <p className="text-verde/65 font-sans text-sm text-center">
+                {complete ? (
+                  <span className="font-bold text-terracota">¡Círculo completo! Gracias a todos 🎉</span>
+                ) : litCount === 0 ? (
+                  <>
+                    Sé el primero en{" "}
+                    <span className="font-bold text-terracota">regalar un asiento</span>
+                  </>
+                ) : remaining === 1 ? (
+                  <>
+                    ¡Falta solo{" "}
+                    <span className="font-bold text-terracota">1 asiento</span>{" "}
+                    para completar un nuevo círculo!
+                  </>
+                ) : (
+                  <>
+                    Faltan{" "}
+                    <span className="font-bold text-terracota">{remaining} asientos</span>{" "}
+                    para completar un nuevo círculo
+                  </>
+                )}
+              </p>
 
-            {/* Mensaje de urgencia sincronizado */}
-            <p
-              style={{ transition: "opacity 0.3s ease" }}
-              className="text-verde/65 font-sans text-sm text-center"
-            >
-              {complete ? (
-                <span className="font-bold text-terracota">¡Círculo completo! Gracias a todos 🎉</span>
-              ) : litCount === 0 ? (
-                <>
-                  Sé el primero en{" "}
-                  <span className="font-bold text-terracota">regalar un asiento</span>
-                </>
-              ) : remaining === 1 ? (
-                <>
-                  ¡Falta solo{" "}
-                  <span className="font-bold text-terracota">1 asiento</span>{" "}
-                  para completar un nuevo círculo!
-                </>
-              ) : (
-                <>
-                  Faltan{" "}
-                  <span className="font-bold text-terracota">{remaining} asientos</span>{" "}
-                  para completar un nuevo círculo
-                </>
-              )}
-            </p>
+            </div>
           </div>
 
         </div>
