@@ -22,28 +22,34 @@ const pillars = [
 ];
 
 const stats = [
-  { value: "2014", label: "Escuchando y acompañando", prefix: "Desde" },
-  { value: "+8.500", label: "Personas han participado en nuestros círculos" },
-  { value: "+150", label: "Monitores/as formados/as" },
-  { value: "+120", label: "Círculos activos en comunidades" },
+  { value: "2014", label: "Escuchando y acompañando", prefix: "Desde", bg: "#C8197A", light: false },
+  { value: "+8.500", label: "Personas han participado en nuestros círculos", bg: "#6B2DB5", light: false },
+  { value: "+150", label: "Monitores/as formados/as", bg: "#1CBF45", light: false },
+  { value: "+120", label: "Círculos activos en comunidades", bg: "#F5D800", light: true },
 ];
 
 export default function ImpactSection() {
   return (
     <section className="bg-white py-16">
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
-        {/* Stats */}
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-5">
           {stats.map((s) => (
             <div
               key={s.value}
-              className="bg-verde rounded-2xl p-5 text-center"
+              className="rounded-2xl p-5 text-center"
+              style={{ backgroundColor: s.bg }}
             >
               {s.prefix && (
-                <p className="text-white/60 font-sans text-xs mb-0.5">{s.prefix}</p>
+                <p className={`font-sans text-xs mb-0.5 ${s.light ? "text-black/50" : "text-white/70"}`}>
+                  {s.prefix}
+                </p>
               )}
-              <p className="font-heading text-3xl font-bold text-white mb-1">{s.value}</p>
-              <p className="text-white/70 text-xs font-sans leading-snug">{s.label}</p>
+              <p className={`font-heading text-3xl font-bold mb-1 ${s.light ? "text-black/80" : "text-white"}`}>
+                {s.value}
+              </p>
+              <p className={`text-xs font-sans leading-snug ${s.light ? "text-black/60" : "text-white/80"}`}>
+                {s.label}
+              </p>
             </div>
           ))}
         </div>

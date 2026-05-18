@@ -3,7 +3,7 @@ import { Heart } from "lucide-react";
 
 export default function ClosingCTA() {
   return (
-    <section className="bg-verde py-16">
+    <section className="bg-beige py-16">
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
           {/* Photo */}
@@ -18,10 +18,10 @@ export default function ClosingCTA() {
 
           {/* Copy + CTAs */}
           <div>
-            <h2 className="font-heading text-3xl md:text-4xl text-white leading-tight mb-4">
+            <h2 className="font-heading text-3xl md:text-4xl text-verde leading-tight mb-4">
               Hay conversaciones que pueden cambiar una vida
             </h2>
-            <p className="text-white/70 font-sans mb-8 leading-relaxed">
+            <p className="text-verde/60 font-sans mb-8 leading-relaxed">
               Ayúdanos a abrir más espacios donde las personas puedan ser escuchadas.
             </p>
 
@@ -35,7 +35,7 @@ export default function ClosingCTA() {
               </Link>
               <Link
                 href="/dona#unico"
-                className="inline-flex items-center justify-center text-white/80 hover:text-white font-sans text-sm underline underline-offset-4 transition-colors"
+                className="inline-flex items-center justify-center text-verde/60 hover:text-verde font-sans text-sm underline underline-offset-4 transition-colors"
               >
                 o hacer un aporte único
               </Link>
@@ -43,15 +43,15 @@ export default function ClosingCTA() {
 
             {/* Trust badges */}
             <div className="flex flex-wrap gap-4 mt-8">
-              <div className="flex items-center gap-2 text-white/60 text-xs font-sans">
+              <div className="flex items-center gap-2 text-verde/50 text-xs font-sans">
                 <span className="text-terracota">✓</span>
                 Corporación sin fines de lucro desde 2014
               </div>
-              <div className="flex items-center gap-2 text-white/60 text-xs font-sans">
+              <div className="flex items-center gap-2 text-verde/50 text-xs font-sans">
                 <span className="text-terracota">✓</span>
                 Beneficio tributario Ley 21.440
               </div>
-              <div className="flex items-center gap-2 text-white/60 text-xs font-sans">
+              <div className="flex items-center gap-2 text-verde/50 text-xs font-sans">
                 <span className="text-terracota">✓</span>
                 Pagos protegidos por Kellü
               </div>
