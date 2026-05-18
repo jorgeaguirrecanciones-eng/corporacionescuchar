@@ -115,11 +115,6 @@ export default function Hero() {
           <div className="flex justify-center">
             <div className="w-full max-w-sm bg-beige rounded-3xl flex flex-col items-center p-6 gap-4">
 
-              {/* Círculo */}
-              <div className="w-full aspect-square flex items-center justify-center">
-                <CircleOfChairs litCount={litCount} size={320} radius={118} />
-              </div>
-
               {/* Ticker — quién acaba de donar */}
               <div
                 style={{ transition: "opacity 350ms ease" }}
@@ -139,6 +134,11 @@ export default function Hero() {
                     </span>
                   </span>
                 )}
+              </div>
+
+              {/* Círculo */}
+              <div className="w-full aspect-square flex items-center justify-center">
+                <CircleOfChairs litCount={litCount} size={320} radius={118} />
               </div>
 
               {/* Mensaje de urgencia */}
