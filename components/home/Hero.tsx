@@ -256,12 +256,12 @@ export function CircleOfChairs({
       className="w-full h-full"
       aria-hidden="true"
     >
-      <circle cx={cx} cy={cy} r={radius * 0.52} fill="#E8603C" opacity="0.05" />
-      <circle cx={cx} cy={cy} r={radius * 0.38} fill="#E8603C" opacity="0.07" />
+      <circle cx={cx} cy={cy} r={radius * 0.52} fill="#C8197A" opacity="0.05" />
+      <circle cx={cx} cy={cy} r={radius * 0.38} fill="#C8197A" opacity="0.07" />
       <circle
         cx={cx} cy={cy} r={radius}
         fill="none"
-        stroke="#1A4A5C"
+        stroke="#3A2878"
         strokeWidth="0.6"
         strokeDasharray="4 7"
         opacity="0.1"
@@ -275,7 +275,7 @@ export function CircleOfChairs({
           <line
             key={`line-${i}`}
             x1={cx} y1={cy} x2={x} y2={y}
-            stroke={lit ? "#E8603C" : "#1A4A5C"}
+            stroke={lit ? "#C8197A" : "#3A2878"}
             strokeWidth={lit ? "1" : "0.5"}
             opacity={lit ? 0.18 : 0.07}
           />
@@ -298,14 +298,14 @@ export function CircleOfChairs({
 
 function Chair({ x, y, angleDeg, lit }: { x: number; y: number; angleDeg: number; lit: boolean }) {
   const rot = angleDeg + 90;
-  const seatFill   = lit ? "#E8603C" : "#E2D8CC";
-  const seatStroke = lit ? "#C94E2C" : "#C4B8A8";
-  const backFill   = lit ? "#B8422A" : "#CEC0AE";
-  const backStroke = lit ? "#963220" : "#B0A090";
+  const seatFill   = lit ? "#C8197A" : "#E2D8CC";
+  const seatStroke = lit ? "#A0146A" : "#C4B8A8";
+  const backFill   = lit ? "#8C1065" : "#CEC0AE";
+  const backStroke = lit ? "#6A0A4A" : "#B0A090";
 
   return (
     <g transform={`translate(${x},${y}) rotate(${rot})`}>
-      {lit && <circle cx={0} cy={0} r={22} fill="#E8603C" opacity={0.18} />}
+      {lit && <circle cx={0} cy={0} r={22} fill="#C8197A" opacity={0.18} />}
       <rect x={-12} y={-2} width={24} height={15} rx={4} fill={seatFill} stroke={seatStroke} strokeWidth={1.2} />
       <rect x={-9} y={-17} width={18} height={15} rx={3.5} fill={backFill} stroke={backStroke} strokeWidth={1.2} />
       <line x1={-12} y1={-2} x2={12} y2={-2} stroke="white" strokeWidth={1.5} opacity={0.6} />
@@ -318,15 +318,15 @@ function CenterHeart({ cx, cy }: { cx: number; cy: number }) {
   const s = 4.2;
   return (
     <g transform={`translate(${cx},${cy})`}>
-      <circle cx={0} cy={0} r={58} fill="#E8603C" opacity={0.05} />
-      <circle cx={0} cy={0} r={46} fill="#E8603C" opacity={0.08} />
-      <circle cx={0} cy={0} r={34} fill="#E8603C" opacity={0.12} />
+      <circle cx={0} cy={0} r={58} fill="#C8197A" opacity={0.05} />
+      <circle cx={0} cy={0} r={46} fill="#C8197A" opacity={0.08} />
+      <circle cx={0} cy={0} r={34} fill="#C8197A" opacity={0.12} />
       <circle cx={0} cy={0} r={30} fill="white" opacity={0.95} />
       <g transform={`scale(${s}) translate(-12,-11)`}>
-        <path d={heartPath} fill="#C94E2C" opacity={0.12} />
+        <path d={heartPath} fill="#A0146A" opacity={0.12} />
       </g>
       <g transform={`scale(${s}) translate(-12,-12)`}>
-        <path d={heartPath} fill="#E8603C" />
+        <path d={heartPath} fill="#C8197A" />
       </g>
       <ellipse cx={-5} cy={-8} rx={7} ry={4} fill="white" opacity={0.22} transform="rotate(-25,-5,-8)" />
     </g>

@@ -19,14 +19,12 @@ export default function Navbar() {
     <header className="sticky top-0 z-50 bg-white/95 backdrop-blur border-b border-border">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
         {/* Logo */}
-        <Link href="/" className="flex items-center gap-2.5 shrink-0">
-          <div className="w-9 h-9 rounded-full bg-terracota flex items-center justify-center">
-            <span className="text-white text-xs font-heading font-bold leading-none">CE</span>
-          </div>
-          <div className="flex flex-col leading-none">
-            <span className="font-heading font-bold text-verde text-base">Corporación</span>
-            <span className="font-heading font-bold text-verde text-base -mt-0.5">Escuchar</span>
-          </div>
+        <Link href="/" className="shrink-0">
+          <img
+            src="https://static.wixstatic.com/media/cf2b8e_31cb61a6fd534bf7b6aae14b650b98ff~mv2.png/v1/crop/x_134,y_0,w_1916,h_919/fill/w_357,h_172,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/Captura%20de%20Pantalla%202023-10-04%20a%20la(s)%2023_39_20.png"
+            alt="Corporación Escuchar"
+            className="h-10 w-auto"
+          />
         </Link>
 
         {/* Desktop nav */}
