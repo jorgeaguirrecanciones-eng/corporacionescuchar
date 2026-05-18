@@ -24,11 +24,15 @@ const feed = [
 const TOTAL = 12;
 const INTERVAL = 3200; // ms entre nombres
 
+const VIDEO_THUMB = "https://static.wixstatic.com/media/cf2b8e_fe109ead2ca942babb72a4f947d2ea89~mv2.jpeg/v1/fill/w_412,h_233,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/cf2b8e_fe109ead2ca942babb72a4f947d2ea89~mv2.jpeg";
+const VIDEO_EMBED = "https://www.youtube.com/embed/SsgmcBdyfaI?autoplay=1&rel=0";
+
 export default function Hero() {
   const [index, setIndex] = useState(0);
   const [litCount, setLitCount] = useState(0);
   const [visible, setVisible] = useState(true);
   const [complete, setComplete] = useState(false);
+  const [videoOpen, setVideoOpen] = useState(false);
 
   useEffect(() => {
     // Estado de círculo completo: esperar y luego avanzar al siguiente
@@ -80,6 +84,30 @@ export default function Hero() {
 
           {/* Left: copy */}
           <div>
+
+            {/* Video thumbnail */}
+            <button
+              onClick={() => setVideoOpen(true)}
+              className="relative w-full rounded-2xl overflow-hidden mb-7 group block"
+              aria-label="Ver video"
+            >
+              <img
+                src={VIDEO_THUMB}
+                alt="Círculo de Escucha"
+                className="w-full aspect-video object-cover"
+              />
+              {/* Overlay oscuro suave */}
+              <div className="absolute inset-0 bg-verde/30 group-hover:bg-verde/20 transition-colors duration-300" />
+              {/* Play button */}
+              <div className="absolute inset-0 flex items-center justify-center">
+                <div className="w-16 h-16 rounded-full bg-white/90 group-hover:bg-white group-hover:scale-110 transition-all duration-300 flex items-center justify-center shadow-lg">
+                  <svg viewBox="0 0 24 24" className="w-7 h-7 text-terracota ml-1" fill="currentColor">
+                    <path d="M8 5v14l11-7z" />
+                  </svg>
+                </div>
+              </div>
+            </button>
+
             <h1 className="font-heading text-[2.6rem] md:text-[3.2rem] leading-[1.1] text-verde mb-5">
               Regala un asiento en un{" "}
               <span className="text-terracota">Círculo de Escucha.</span>
@@ -170,6 +198,38 @@ export default function Hero() {
 
         </div>
       </div>
+
+      {/* Modal de video */}
+      {videoOpen && (
+        <div
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 p-4"
+          onClick={() => setVideoOpen(false)}
+        >
+          <div
+            className="relative w-full max-w-3xl rounded-2xl overflow-hidden shadow-2xl"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <div className="aspect-video">
+              <iframe
+                src={VIDEO_EMBED}
+                className="w-full h-full"
+                allow="autoplay; fullscreen"
+                allowFullScreen
+              />
+            </div>
+            <button
+              onClick={() => setVideoOpen(false)}
+              className="absolute top-3 right-3 w-9 h-9 rounded-full bg-black/60 hover:bg-black/80 text-white flex items-center justify-center transition-colors"
+              aria-label="Cerrar video"
+            >
+              <svg viewBox="0 0 24 24" className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth={2}>
+                <path d="M18 6L6 18M6 6l12 12" strokeLinecap="round" />
+              </svg>
+            </button>
+          </div>
+        </div>
+      )}
+
     </section>
   );
 }
