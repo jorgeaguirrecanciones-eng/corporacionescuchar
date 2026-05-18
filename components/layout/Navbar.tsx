@@ -45,7 +45,7 @@ export default function Navbar() {
           href="/hazte-socio"
           className="hidden md:inline-flex items-center gap-2 bg-terracota hover:bg-terracota-dark text-white text-sm font-sans font-medium px-5 py-2.5 rounded-full transition-colors"
         >
-          Abrir un asiento
+          Regalar un asiento
         </Link>
 
         {/* Mobile hamburger */}
@@ -78,7 +78,7 @@ export default function Navbar() {
             onClick={() => setOpen(false)}
             className="mt-4 flex items-center justify-center bg-terracota text-white text-sm font-sans font-medium py-3 rounded-full"
           >
-            Abrir un asiento
+            Regalar un asiento
           </Link>
         </div>
       )}

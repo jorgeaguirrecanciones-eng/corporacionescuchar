@@ -31,7 +31,7 @@ export default function ClosingCTA() {
                 className="inline-flex items-center justify-center gap-2 bg-terracota hover:bg-terracota-dark text-white font-sans font-medium px-7 py-3.5 rounded-full transition-colors"
               >
                 <Heart size={18} fill="currentColor" />
-                Abrir mi asiento mensual
+                Regalar mi asiento mensual
               </Link>
               <Link
                 href="/dona#unico"

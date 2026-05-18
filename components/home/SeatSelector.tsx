@@ -133,7 +133,7 @@ export default function SeatSelector() {
 
             {/* CTA */}
             <button className="mt-5 w-full sm:w-auto bg-terracota hover:bg-terracota-dark text-white font-sans font-medium px-8 py-3.5 rounded-full transition-colors flex items-center gap-2 text-base">
-              Abrir mi asiento
+              Regalar mi asiento
               <span className="text-lg">→</span>
             </button>
           </div>
