@@ -51,10 +51,6 @@ export default function ClosingCTA() {
                 <span className="text-terracota">✓</span>
                 Beneficio tributario Ley 21.440
               </div>
-              <div className="flex items-center gap-2 text-verde/50 text-xs font-sans">
-                <span className="text-terracota">✓</span>
-                Pagos protegidos por Kellü
-              </div>
             </div>
           </div>
         </div>
