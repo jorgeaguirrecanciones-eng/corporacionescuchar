@@ -1,12 +1,6 @@
 import Link from "next/link";
 import { Heart } from "lucide-react";
-
-const pills = [
-  { label: "Espacios gratuitos" },
-  { label: "Comunidad" },
-  { label: "Acompañamiento" },
-  { label: "Impacto visible" },
-];
+import DonorTicker from "./DonorTicker";
 
 export default function Hero() {
   return (
@@ -44,15 +38,8 @@ export default function Hero() {
               </div>
             </div>
 
-            <div className="flex flex-wrap gap-2 mt-8">
-              {pills.map((p) => (
-                <span
-                  key={p.label}
-                  className="inline-flex items-center text-sm font-sans text-verde/70 bg-beige px-3 py-1.5 rounded-full"
-                >
-                  {p.label}
-                </span>
-              ))}
+            <div className="mt-8">
+              <DonorTicker />
             </div>
           </div>
 
