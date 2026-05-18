@@ -92,6 +92,7 @@ function SuccessScreen({ name }: { name: string }) {
 /* ─── Main page ─── */
 export default function CirculosPage() {
   const [step, setStep] = useState(1);
+  const goToStep = (n: number) => { window.scrollTo({ top: 0, behavior: "instant" }); setStep(n); };
   const [done, setDone] = useState(false);
   const [form, setForm] = useState<FormData>(empty);
 
@@ -205,7 +206,7 @@ export default function CirculosPage() {
 
             <button
               disabled={!canNext1}
-              onClick={() => setStep(2)}
+              onClick={() => goToStep(2)}
               className="self-start flex items-center gap-2 bg-terracota text-white font-sans font-medium px-8 py-3.5 rounded-full transition-opacity hover:opacity-90 disabled:opacity-30 disabled:cursor-not-allowed"
             >
               Continuar
@@ -285,7 +286,7 @@ export default function CirculosPage() {
 
             <div className="flex gap-3">
               <button
-                onClick={() => setStep(1)}
+                onClick={() => goToStep(1)}
                 className="flex items-center gap-2 border-2 border-gray-200 text-verde/60 font-sans font-medium px-6 py-3.5 rounded-full hover:border-verde/40 transition-colors"
               >
                 <ArrowLeft size={16} />
@@ -293,7 +294,7 @@ export default function CirculosPage() {
               </button>
               <button
                 disabled={!canNext2}
-                onClick={() => setStep(3)}
+                onClick={() => goToStep(3)}
                 className="flex items-center gap-2 bg-terracota text-white font-sans font-medium px-8 py-3.5 rounded-full transition-opacity hover:opacity-90 disabled:opacity-30 disabled:cursor-not-allowed"
               >
                 Continuar
@@ -379,7 +380,7 @@ export default function CirculosPage() {
 
             <div className="flex gap-3">
               <button
-                onClick={() => setStep(2)}
+                onClick={() => goToStep(2)}
                 className="flex items-center gap-2 border-2 border-gray-200 text-verde/60 font-sans font-medium px-6 py-3.5 rounded-full hover:border-verde/40 transition-colors"
               >
                 <ArrowLeft size={16} />
