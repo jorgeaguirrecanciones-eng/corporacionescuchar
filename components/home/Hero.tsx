@@ -25,7 +25,7 @@ const TOTAL = 12;
 const INTERVAL = 3200; // ms entre nombres
 
 const VIDEO_THUMB = "https://static.wixstatic.com/media/cf2b8e_fe109ead2ca942babb72a4f947d2ea89~mv2.jpeg/v1/fill/w_412,h_233,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/cf2b8e_fe109ead2ca942babb72a4f947d2ea89~mv2.jpeg";
-const VIDEO_EMBED = "https://www.youtube.com/embed/SsgmcBdyfaI?autoplay=1&rel=0";
+const VIDEO_EMBED = "https://www.youtube.com/embed/OF4TSod3eL0?autoplay=1&rel=0";
 
 export default function Hero() {
   const [index, setIndex] = useState(0);

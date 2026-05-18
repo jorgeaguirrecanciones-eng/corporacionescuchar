@@ -3,18 +3,16 @@ import { Mail, Phone, MapPin } from "lucide-react";
 
 export default function Footer() {
   return (
-    <footer className="bg-verde text-white/80">
+    <footer style={{ backgroundColor: "#6B2DB5" }} className="text-white/80">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 py-14 grid grid-cols-1 md:grid-cols-3 gap-10">
         {/* Brand */}
         <div>
-          <div className="flex items-center gap-2.5 mb-4">
-            <div className="w-9 h-9 rounded-full bg-terracota flex items-center justify-center shrink-0">
-              <span className="text-white text-xs font-heading font-bold">CE</span>
-            </div>
-            <div className="flex flex-col leading-none">
-              <span className="font-heading font-bold text-white text-base">Corporación</span>
-              <span className="font-heading font-bold text-white text-base -mt-0.5">Escuchar</span>
-            </div>
+          <div className="inline-block bg-white rounded-2xl px-5 py-3 mb-4">
+            <img
+              src="https://static.wixstatic.com/media/cf2b8e_31cb61a6fd534bf7b6aae14b650b98ff~mv2.png/v1/crop/x_134,y_0,w_1916,h_919/fill/w_357,h_172,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/Captura%20de%20Pantalla%202023-10-04%20a%20la(s)%2023_39_20.png"
+              alt="Corporación Escuchar"
+              className="h-10 w-auto"
+            />
           </div>
           <p className="text-sm leading-relaxed text-white/70">
             Círculos de Escucha para el bienestar emocional y la comunidad. Organización sin fines de lucro desde 2014.
@@ -26,13 +24,13 @@ export default function Footer() {
           <h4 className="font-heading font-semibold text-white mb-4">Contáctanos</h4>
           <ul className="space-y-2.5 text-sm">
             <li className="flex items-center gap-2.5">
-              <Mail size={15} className="text-terracota shrink-0" />
+              <Mail size={15} className="text-white/60 shrink-0" />
               <a href="mailto:contacto@corporacionescuchar.cl" className="hover:text-white transition-colors">
                 hola@corporacionescuchar.cl
               </a>
             </li>
             <li className="flex items-center gap-2.5">
-              <Phone size={15} className="text-terracota shrink-0" />
+              <Phone size={15} className="text-white/60 shrink-0" />
               <a href="https://wa.me/56998218311" className="hover:text-white transition-colors">
                 +56 9 9821 8311
               </a>
