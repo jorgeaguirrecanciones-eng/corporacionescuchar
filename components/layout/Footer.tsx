@@ -90,25 +90,25 @@ export default function Footer() {
             ))}
           </div>
 
-          {/* Kellü badge */}
-          <div className="inline-flex items-center gap-2 bg-white/10 border border-white/20 rounded-xl px-3 py-2">
-            <div className="w-6 h-6 rounded-md bg-terracota flex items-center justify-center">
-              <span className="text-white text-[9px] font-bold font-heading">K</span>
-            </div>
-            <div className="text-xs leading-tight">
-              <div className="text-white font-medium">KELLÜ</div>
-              <div className="text-white/60">Transparencia y confianza</div>
-            </div>
-          </div>
         </div>
       </div>
 
       <div className="border-t border-white/10">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 py-4 flex flex-col sm:flex-row justify-between items-center gap-2 text-xs text-white/40">
           <span>© 2025 Corporación Escuchar. Todos los derechos reservados.</span>
-          <div className="flex gap-4">
-            <Link href="/transparencia" className="hover:text-white/70 transition-colors">Transparencia</Link>
-            <Link href="/transparencia" className="hover:text-white/70 transition-colors">FECU Social 2024</Link>
+          <div className="flex flex-col sm:flex-row items-center gap-4">
+            <div className="flex gap-4">
+              <Link href="/transparencia" className="hover:text-white/70 transition-colors">Transparencia</Link>
+              <Link href="/transparencia" className="hover:text-white/70 transition-colors">FECU Social 2024</Link>
+            </div>
+            <a
+              href="https://www.kellucausas.com/lab"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-white/70 transition-colors"
+            >
+              Plataforma creada con amor por <span className="text-white/60 font-medium">Kellü Lab</span>
+            </a>
           </div>
         </div>
       </div>
