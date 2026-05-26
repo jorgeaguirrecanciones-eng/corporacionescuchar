@@ -72,7 +72,7 @@ export default function WhatIsACircle() {
           </div>
 
           {/* Stat card */}
-          <div className="rounded-2xl bg-verde p-6 flex flex-col justify-between" style={{ aspectRatio: "4/3" }}>
+          <div className="rounded-2xl bg-[#6B2DB5] p-6 flex flex-col justify-between" style={{ aspectRatio: "4/3" }}>
             <div>
               <div className="text-white/50 text-[10px] font-sans uppercase tracking-widest mb-5">
                 Cómo participar
@@ -119,7 +119,7 @@ export default function WhatIsACircle() {
             </div>
           ))}
           {/* Stat card mobile */}
-          <div className="snap-start shrink-0 rounded-2xl bg-verde p-5 w-56 h-48 flex flex-col justify-between">
+          <div className="snap-start shrink-0 rounded-2xl bg-[#6B2DB5] p-5 w-56 h-48 flex flex-col justify-between">
             <div className="space-y-3">
               <div>
                 <div className="text-white font-heading text-2xl font-bold">Lunes</div>

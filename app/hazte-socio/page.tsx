@@ -26,7 +26,7 @@ function StepDots({ current }: { current: number }) {
               s < current
                 ? "bg-terracota text-white"
                 : s === current
-                ? "bg-verde text-white shadow-md"
+                ? "bg-[#6B2DB5] text-white shadow-md"
                 : "bg-verde/15 text-verde/40"
             }`}
           >
@@ -119,7 +119,7 @@ export default function HazteSocioPage() {
                     onClick={() => { setSeats(p); setShowCustom(false); }}
                     className={`w-13 h-13 w-[52px] h-[52px] rounded-full font-sans font-bold text-base transition-all duration-200 ${
                       !showCustom && seats === p
-                        ? "bg-verde text-white shadow-lg shadow-verde/25 scale-110"
+                        ? "bg-[#6B2DB5] text-white shadow-lg shadow-[#6B2DB5]/25 scale-110"
                         : "bg-white text-verde border-2 border-verde/20 hover:border-verde/50 hover:scale-105"
                     }`}
                   >

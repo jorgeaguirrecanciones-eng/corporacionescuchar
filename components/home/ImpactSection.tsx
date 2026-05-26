@@ -22,7 +22,7 @@ const pillars = [
 ];
 
 const stats = [
-  { value: "2014", label: "Escuchando y acompañando", prefix: "Desde", bg: "#C8197A", light: false },
+  { value: "2014", label: "Escuchando y acompañando", prefix: "Desde", bg: "#1CBF45", light: false },
   { value: "+8.500", label: "Personas han participado en nuestros círculos", bg: "#6B2DB5", light: false },
   { value: "+150", label: "Monitores/as formados/as", bg: "#1CBF45", light: false },
   { value: "+120", label: "Círculos activos en comunidades", bg: "#F5D800", light: true },

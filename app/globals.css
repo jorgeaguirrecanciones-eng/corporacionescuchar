@@ -6,9 +6,9 @@
 
 @theme inline {
   /* Escuchar brand colors — aligned with logo palette */
-  --color-terracota: #C8197A;       /* magenta — círculo dominante del logo */
-  --color-terracota-light: #E040A0;
-  --color-terracota-dark: #A0146A;
+  --color-terracota: #1CBF45;       /* verde brillante institucional */
+  --color-terracota-light: #34D058;
+  --color-terracota-dark: #16A34A;
   --color-verde: #3D3D3D;           /* gris oscuro — texto del logo "ESCUCHAR" */
   --color-verde-light: #666666;
   --color-verde-dark: #1A1A1A;
@@ -54,7 +54,7 @@
   --card-foreground: #3D3D3D;
   --popover: #ffffff;
   --popover-foreground: #3D3D3D;
-  --primary: #C8197A;
+  --primary: #1CBF45;
   --primary-foreground: #ffffff;
   --secondary: #F5EFE6;
   --secondary-foreground: #3D3D3D;
@@ -65,7 +65,7 @@
   --destructive: #dc2626;
   --border: #e2ddd6;
   --input: #e2ddd6;
-  --ring: #C8197A;
+  --ring: #1CBF45;
   --radius: 0.75rem;
 }
 

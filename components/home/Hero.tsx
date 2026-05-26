@@ -302,7 +302,7 @@ export function CircleOfChairs({
             key={`net-${a}-${b}`}
             x1={pa.x} y1={pa.y}
             x2={pb.x} y2={pb.y}
-            stroke={bothLit ? "#3D3D3D" : "#9B9B9B"}
+            stroke={bothLit ? "#6B2DB5" : "#9B9B9B"}
             strokeWidth={bothLit ? 0.9 : 0.5}
             opacity={bothLit ? 0.22 : eitherLit ? 0.1 : 0.06}
           />
@@ -321,12 +321,12 @@ export function CircleOfChairs({
 }
 
 function Person({ x, y, lit }: { x: number; y: number; lit: boolean }) {
-  const fill = lit ? "#3D3D3D" : "#C4B8A8";
-  const stroke = lit ? "#1A1A1A" : "#A89888";
+  const fill = lit ? "#6B2DB5" : "#C4B8A8";
+  const stroke = lit ? "#4A1D8A" : "#A89888";
 
   return (
     <g transform={`translate(${x},${y})`}>
-      {lit && <circle cx={0} cy={0} r={19} fill="#3D3D3D" opacity={0.12} />}
+      {lit && <circle cx={0} cy={0} r={19} fill="#6B2DB5" opacity={0.15} />}
       {/* Head */}
       <circle cx={0} cy={-9} r={5} fill={fill} stroke={stroke} strokeWidth={0.8} />
       {/* Shoulders */}
@@ -348,12 +348,12 @@ function CenterListening({ cx, cy }: { cx: number; cy: number }) {
       <circle cx={0} cy={0} r={46} fill="#3D3D3D" opacity={0.05} />
       <circle cx={0} cy={0} r={34} fill="#3D3D3D" opacity={0.07} />
       <circle cx={0} cy={0} r={30} fill="white" opacity={0.96} />
-      {/* Listening arcs — all verde, progressive opacity */}
-      <path d={arc(20)} fill="none" stroke="#3D3D3D" strokeWidth={2}   strokeLinecap="round" opacity={0.18} />
-      <path d={arc(14)} fill="none" stroke="#3D3D3D" strokeWidth={2.2} strokeLinecap="round" opacity={0.38} />
-      <path d={arc(8)}  fill="none" stroke="#3D3D3D" strokeWidth={2.5} strokeLinecap="round" opacity={0.6}  />
+      {/* Listening arcs — morado, progressive opacity */}
+      <path d={arc(20)} fill="none" stroke="#6B2DB5" strokeWidth={2}   strokeLinecap="round" opacity={0.2}  />
+      <path d={arc(14)} fill="none" stroke="#6B2DB5" strokeWidth={2.2} strokeLinecap="round" opacity={0.45} />
+      <path d={arc(8)}  fill="none" stroke="#6B2DB5" strokeWidth={2.5} strokeLinecap="round" opacity={0.65} />
       {/* Center dot */}
-      <circle cx={0} cy={0} r={3} fill="#3D3D3D" opacity={0.6} />
+      <circle cx={0} cy={0} r={3} fill="#6B2DB5" opacity={0.65} />
     </g>
   );
 }
