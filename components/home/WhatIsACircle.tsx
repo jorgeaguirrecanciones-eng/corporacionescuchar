@@ -14,10 +14,10 @@ const PHOTOS = [
 ];
 
 const pillars = [
-  { label: "Escucha activa", desc: "Sin interrupciones ni consejos" },
-  { label: "Sin jerarquías", desc: "Todos los roles son iguales" },
-  { label: "Comunidad real", desc: "Vínculos que trascienden el círculo" },
-  { label: "Bienestar emocional", desc: "Resiliencia individual y colectiva" },
+  { label: "Solo escucha, sin consejos", desc: "Sin interrupciones, sin soluciones, sin juicio" },
+  { label: "Nadie es más que nadie", desc: "Sin roles ni jerarquías. Todos iguales" },
+  { label: "Vínculos que duran", desc: "Conexiones reales que van más allá del círculo" },
+  { label: "Gratis, siempre", desc: "Sin costo ni compromiso, para siempre" },
 ];
 
 export default function WhatIsACircle() {
@@ -28,20 +28,20 @@ export default function WhatIsACircle() {
         {/* Header */}
         <div className="max-w-2xl mb-10">
           <span className="inline-block text-xs font-sans font-semibold tracking-widest text-terracota uppercase mb-3">
-            Los círculos
+            Por qué existen los círculos
           </span>
           <h2 className="font-heading text-3xl md:text-[2.6rem] text-verde leading-tight mb-4">
-            ¿Qué es un<br className="hidden sm:block" />{" "}
-            Círculo de Escucha?
+            El problema no es que no hablemos.<br className="hidden sm:block" />{" "}
+            Es que nadie escucha.
           </h2>
           <p className="text-verde/70 text-lg leading-relaxed">
-            Un espacio gratuito donde personas se reúnen a escucharse sin juicio,
-            sin roles y sin jerarquías. Solo presencia genuina, contención y comunidad.
+            Los Círculos de Escucha son espacios gratuitos donde las personas
+            se reúnen, sin agenda ni jerarquías, solo a escucharse.
             Cada lunes, en todo Chile.
           </p>
         </div>
 
-        {/* Main photo — desktop full width, mobile full width */}
+        {/* Main photo */}
         <div className="rounded-3xl overflow-hidden mb-4" style={{ aspectRatio: "16/7" }}>
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img

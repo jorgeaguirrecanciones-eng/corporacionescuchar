@@ -2,17 +2,17 @@ const pillars = [
   {
     icon: "👂",
     title: "Escucha",
-    desc: "Espacios seguros para compartir experiencias sin juicio.",
+    desc: "Un espacio donde no hay que explicarse ni justificarse. Solo estar y ser escuchado.",
   },
   {
     icon: "🤝",
     title: "Contención",
-    desc: "Redes que alivian el estrés y el malestar emocional.",
+    desc: "La sensación de no cargar solo con lo que uno trae.",
   },
   {
     icon: "◎",
     title: "Comunidad",
-    desc: "Vínculos que fortalecen la resiliencia individual y colectiva.",
+    desc: "Conexiones reales que se sostienen más allá del círculo.",
   },
 ];
 
@@ -27,7 +27,7 @@ export default function WhatYouMakePossible() {
               Lo que haces posible
             </p>
             <h2 className="font-heading text-3xl md:text-4xl text-verde mb-8 leading-tight">
-              Cuando alguien encuentra un espacio para hablar, algo cambia
+              Cuando alguien es escuchado de verdad, algo cambia
             </h2>
             <div className="flex flex-col gap-4">
               {pillars.map((p) => (
@@ -48,7 +48,6 @@ export default function WhatYouMakePossible() {
 
           {/* Right: photo + testimony */}
           <div className="flex flex-col gap-5">
-            {/* Photo */}
             <div className="aspect-[4/3] rounded-3xl overflow-hidden">
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
@@ -58,7 +57,6 @@ export default function WhatYouMakePossible() {
               />
             </div>
 
-            {/* Testimony */}
             <blockquote className="bg-white rounded-2xl p-5 shadow-sm border border-border relative">
               <span className="absolute -top-4 left-5 text-terracota text-5xl font-heading leading-none">"</span>
               <p className="text-verde font-sans text-sm leading-relaxed pt-3 mb-3">

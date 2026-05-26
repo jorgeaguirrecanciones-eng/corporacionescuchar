@@ -4,7 +4,7 @@ import { useState } from "react";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import { CircleOfChairs } from "@/components/home/Hero";
-import { Heart, ArrowRight, ArrowLeft, Check } from "lucide-react";
+import { Gift, ArrowRight, ArrowLeft, Check } from "lucide-react";
 
 const SEAT_PRICE = 7000;
 const PRESETS = [1, 2, 3, 5, 10];
@@ -79,10 +79,10 @@ export default function DonaPage() {
                 Paso 1 de 3
               </span>
               <h1 className="font-heading text-3xl md:text-4xl text-verde text-center leading-tight mb-2">
-                ¿Cuántos asientos<br />quieres regalar?
+                ¿Cuántos espacios<br />quieres aportar?
               </h1>
               <p className="text-verde/55 font-sans text-sm text-center mb-10">
-                Cada asiento vale {fmt(SEAT_PRICE)}
+                Cada espacio vale {fmt(SEAT_PRICE)}
               </p>
 
               {/* Circle — the hero of this step */}
@@ -105,7 +105,7 @@ export default function DonaPage() {
                   {effectiveSeats}
                 </div>
                 <div className="text-verde/50 font-sans text-sm mt-1">
-                  asiento{effectiveSeats !== 1 ? "s" : ""}
+                  espacio{effectiveSeats !== 1 ? "s" : ""}
                 </div>
                 <div className="mt-3 text-terracota font-heading text-3xl font-bold leading-none">
                   {fmt(total)}
@@ -199,7 +199,7 @@ export default function DonaPage() {
                 ¿Cómo quieres<br />apoyar?
               </h1>
               <p className="text-verde/55 font-sans text-sm text-center mb-10">
-                {effectiveSeats} asiento{effectiveSeats !== 1 ? "s" : ""} · {fmt(total)}
+                {effectiveSeats} espacio{effectiveSeats !== 1 ? "s" : ""} · {fmt(total)}
               </p>
 
               <div className="flex flex-col gap-4 w-full mb-10">
@@ -218,7 +218,7 @@ export default function DonaPage() {
                         Mensual
                       </div>
                       <div className="text-verde/60 font-sans text-sm leading-relaxed">
-                        Tu asiento acompaña a alguien cada lunes, mes a mes. Puedes pausar o cancelar cuando quieras.
+                        Tu espacio acompaña a alguien cada lunes, mes a mes. Puedes pausar o cancelar cuando quieras.
                       </div>
                       <div className="mt-4 text-terracota font-heading text-2xl font-bold">
                         {fmt(total)}
@@ -239,9 +239,9 @@ export default function DonaPage() {
                   </div>
                   {frequency === "monthly" && (
                     <div className="mt-4 pt-4 border-t border-verde/10 flex items-center gap-2">
-                      <Heart size={13} className="text-terracota" fill="currentColor" />
+                      <Gift size={13} className="text-terracota" />
                       <span className="text-verde/60 text-xs font-sans">
-                        La opción más poderosa — un asiento permanente para quien más lo necesita
+                        La opción más poderosa — un espacio permanente para quien más lo necesita
                       </span>
                     </div>
                   )}
@@ -317,7 +317,7 @@ export default function DonaPage() {
                 Casi listo
               </h1>
               <p className="text-verde/55 font-sans text-sm text-center mb-8">
-                ¿A quién le avisamos cuando abras tu asiento?
+                ¿A quién le avisamos cuando aportes tu espacio?
               </p>
 
               {/* Summary */}
@@ -328,7 +328,7 @@ export default function DonaPage() {
                       Tu donación
                     </div>
                     <div className="text-white font-heading text-lg font-bold leading-tight">
-                      {effectiveSeats} asiento{effectiveSeats !== 1 ? "s" : ""}
+                      {effectiveSeats} espacio{effectiveSeats !== 1 ? "s" : ""}
                     </div>
                     <div className="text-white/60 text-sm font-sans">
                       {frequency === "monthly" ? "Mensual" : "Donación única"}
@@ -385,7 +385,7 @@ export default function DonaPage() {
                   disabled={!name.trim() || !email.trim()}
                   className="flex-1 bg-terracota hover:bg-terracota-dark disabled:opacity-40 disabled:cursor-not-allowed text-white font-sans font-semibold px-8 py-3.5 rounded-full transition-colors flex items-center justify-center gap-2 shadow-lg shadow-terracota/20"
                 >
-                  <Heart size={15} fill="currentColor" />
+                  <Gift size={15} />
                   Ir a pagar
                   <ArrowRight size={18} />
                 </button>

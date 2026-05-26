@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Heart } from "lucide-react";
+import { Gift } from "lucide-react";
 
 export default function ClosingCTA() {
   return (
@@ -19,10 +19,10 @@ export default function ClosingCTA() {
           {/* Copy + CTAs */}
           <div>
             <h2 className="font-heading text-3xl md:text-4xl text-verde leading-tight mb-4">
-              Hay conversaciones que pueden cambiar una vida
+              Escucharnos es urgente.
             </h2>
             <p className="text-verde/60 font-sans mb-8 leading-relaxed">
-              Ayúdanos a abrir más espacios donde las personas puedan ser escuchadas.
+              Abre un espacio para que alguien, esta semana, no tenga que cargar solo con lo suyo.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-3">
@@ -30,8 +30,8 @@ export default function ClosingCTA() {
                 href="/dona"
                 className="inline-flex items-center justify-center gap-2 bg-terracota hover:bg-terracota-dark text-white font-sans font-medium px-7 py-3.5 rounded-full transition-colors"
               >
-                <Heart size={18} fill="currentColor" />
-                Regalar mi asiento mensual
+                <Gift size={18} />
+                Aportar un espacio mensual
               </Link>
               <Link
                 href="/dona#unico"

@@ -14,11 +14,11 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Corporación Escuchar — Abre un asiento",
+  title: "Corporación Escuchar — Aporta un espacio",
   description:
     "Tu aporte mensual permite que más personas encuentren un espacio gratuito de escucha, contención y comunidad. Círculos de Escucha gratuitos desde 2014.",
   openGraph: {
-    title: "Corporación Escuchar — Abre un asiento",
+    title: "Corporación Escuchar — Aporta un espacio",
     description:
       "Hay conversaciones que pueden cambiar una vida. Nosotros creamos el espacio para que ocurran.",
     siteName: "Corporación Escuchar",

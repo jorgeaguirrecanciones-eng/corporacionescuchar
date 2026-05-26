@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { Check, Heart } from "lucide-react";
+import { Check, Gift } from "lucide-react";
 import { CircleOfChairs } from "./Hero";
 
 const seats = [
@@ -57,7 +57,7 @@ export default function SeatSelector() {
           <p className="text-sm font-sans text-verde/60 mb-1">Campaña activa</p>
           <div className="inline-flex items-baseline gap-2">
             <span className="font-heading text-3xl text-verde font-bold">{CAMPAIGN_OPENED}</span>
-            <span className="text-verde/60 font-sans text-sm">asientos abiertos de {CAMPAIGN_GOAL} meta</span>
+            <span className="text-verde/60 font-sans text-sm">espacios aportados de {CAMPAIGN_GOAL} meta</span>
           </div>
           <div className="mt-3 max-w-md mx-auto bg-beige rounded-full h-2.5">
             <div
@@ -68,7 +68,7 @@ export default function SeatSelector() {
         </div>
 
         <h2 className="font-heading text-2xl md:text-3xl text-verde text-center mb-8">
-          Elige cuántos asientos quieres abrir
+          Elige cuántos espacios quieres aportar
         </h2>
 
         <div className="grid grid-cols-1 lg:grid-cols-[1fr_280px] gap-8 items-start">
@@ -94,7 +94,7 @@ export default function SeatSelector() {
                     )}
 
                     <div className="font-heading text-lg font-bold text-verde mb-0.5">
-                      {seat.free ? "Monto libre" : `${seat.count} asiento${seat.count > 1 ? "s" : ""}`}
+                      {seat.free ? "Monto libre" : `${seat.count} espacio${seat.count > 1 ? "s" : ""}`}
                     </div>
                     <div className="text-terracota font-sans font-semibold text-sm mb-2">
                       {seat.price}
@@ -106,7 +106,7 @@ export default function SeatSelector() {
                     {/* Chair icons */}
                     <div className="flex flex-wrap gap-0.5">
                       {seat.free ? (
-                        <Heart size={13} className="text-terracota" fill="currentColor" />
+                        <Gift size={13} className="text-terracota" />
                       ) : (
                         Array.from({ length: seat.count }).map((_, j) => (
                           <span key={j} className="text-[11px] text-terracota">⌾</span>
@@ -133,7 +133,7 @@ export default function SeatSelector() {
 
             {/* CTA */}
             <button className="mt-5 w-full sm:w-auto bg-terracota hover:bg-terracota-dark text-white font-sans font-medium px-8 py-3.5 rounded-full transition-colors flex items-center gap-2 text-base">
-              Regalar mi asiento
+              Aportar un espacio
               <span className="text-lg">→</span>
             </button>
           </div>
@@ -147,7 +147,7 @@ export default function SeatSelector() {
               {selectedSeat.free ? "♡" : selectedSeat.count}
             </p>
             <p className="text-verde/60 font-sans text-sm text-center">
-              {selectedSeat.free ? "con amor" : `asiento${selectedSeat.count > 1 ? "s" : ""} abierto${selectedSeat.count > 1 ? "s" : ""}`}
+              {selectedSeat.free ? "con amor" : `espacio${selectedSeat.count > 1 ? "s" : ""} aportado${selectedSeat.count > 1 ? "s" : ""}`}
             </p>
           </div>
         </div>

@@ -2,29 +2,30 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import { Heart } from "lucide-react";
+import { Gift } from "lucide-react";
 
 /* ─── Feed — diseñado para que el ciclo sume exactamente 12 ─── */
 const feed = [
-  { name: "Camila", seats: 2 },      // → 2  | faltan 10
-  { name: "Felipe", seats: 1 },      // → 3  | faltan 9
-  { name: "Valentina", seats: 3 },   // → 6  | faltan 6
-  { name: "Diego", seats: 2 },       // → 8  | faltan 4
-  { name: "Sofía", seats: 1 },       // → 9  | faltan 3 ★
-  { name: "Andrés", seats: 2 },      // → 11 | falta 1
-  { name: "Javiera", seats: 1 },     // → 12 | ¡COMPLETO!
-  { name: "Matías", seats: 2 },      // → 2  | faltan 10
-  { name: "Isidora", seats: 3 },     // → 5  | faltan 7
-  { name: "Paula", seats: 2 },       // → 7  | faltan 5
-  { name: "Sebastián", seats: 1 },   // → 8  | faltan 4
-  { name: "Tomás", seats: 3 },       // → 11 | falta 1
-  { name: "Constanza", seats: 1 },   // → 12 | ¡COMPLETO!
+  { name: "Camila", seats: 2 },
+  { name: "Felipe", seats: 1 },
+  { name: "Valentina", seats: 3 },
+  { name: "Diego", seats: 2 },
+  { name: "Sofía", seats: 1 },
+  { name: "Andrés", seats: 2 },
+  { name: "Javiera", seats: 1 },
+  { name: "Matías", seats: 2 },
+  { name: "Isidora", seats: 3 },
+  { name: "Paula", seats: 2 },
+  { name: "Sebastián", seats: 1 },
+  { name: "Tomás", seats: 3 },
+  { name: "Constanza", seats: 1 },
 ];
 
 const TOTAL = 12;
-const INTERVAL = 3200; // ms entre nombres
+const INTERVAL = 3200;
 
-const VIDEO_THUMB = "https://static.wixstatic.com/media/cf2b8e_fe109ead2ca942babb72a4f947d2ea89~mv2.jpeg/v1/fill/w_412,h_233,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/cf2b8e_fe109ead2ca942babb72a4f947d2ea89~mv2.jpeg";
+const VIDEO_THUMB =
+  "https://static.wixstatic.com/media/cf2b8e_fe109ead2ca942babb72a4f947d2ea89~mv2.jpeg/v1/fill/w_412,h_233,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/cf2b8e_fe109ead2ca942babb72a4f947d2ea89~mv2.jpeg";
 const VIDEO_EMBED = "https://www.youtube.com/embed/OF4TSod3eL0?autoplay=1&rel=0";
 
 export default function Hero() {
@@ -35,7 +36,6 @@ export default function Hero() {
   const [videoOpen, setVideoOpen] = useState(false);
 
   useEffect(() => {
-    // Estado de círculo completo: esperar y luego avanzar al siguiente
     if (complete) {
       const t = setTimeout(() => {
         setComplete(false);
@@ -49,10 +49,8 @@ export default function Hero() {
       return () => clearTimeout(t);
     }
 
-    // Pausar cuando faltan exactamente 3 — el visitante siente que puede completar el círculo
     if (litCount === TOTAL - 3) return;
 
-    // Avanzar al siguiente donante
     const t = setTimeout(() => {
       setVisible(false);
       setTimeout(() => {
@@ -84,8 +82,6 @@ export default function Hero() {
 
           {/* Left: copy */}
           <div>
-
-            {/* Video thumbnail */}
             <button
               onClick={() => setVideoOpen(true)}
               className="relative w-full rounded-2xl overflow-hidden mb-7 group block"
@@ -96,9 +92,7 @@ export default function Hero() {
                 alt="Círculo de Escucha"
                 className="w-full aspect-video object-cover"
               />
-              {/* Overlay muy sutil al hover */}
               <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-300" />
-              {/* Play button */}
               <div className="absolute inset-0 flex items-center justify-center">
                 <div className="w-16 h-16 rounded-full bg-white/90 group-hover:bg-white group-hover:scale-110 transition-all duration-300 flex items-center justify-center shadow-lg">
                   <svg viewBox="0 0 24 24" className="w-7 h-7 text-terracota ml-1" fill="currentColor">
@@ -108,12 +102,15 @@ export default function Hero() {
               </div>
             </button>
 
+            <p className="text-verde/50 font-sans text-sm font-semibold uppercase tracking-widest mb-4">
+              Escucharnos es urgente.
+            </p>
             <h1 className="font-heading text-[2.6rem] md:text-[3.2rem] leading-[1.1] text-verde mb-5">
-              Regala un asiento en un{" "}
+              Aporta un espacio en el{" "}
               <span className="text-terracota">Círculo de Escucha.</span>
             </h1>
             <p className="text-verde/70 text-lg leading-relaxed mb-8 max-w-md">
-              Tu aporte permite que una persona —con nombre y apellido— encuentre un espacio gratuito de escucha, contención y comunidad.
+              Para que quien más lo necesita encuentre, por fin, a alguien que lo escuche de verdad.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-3 items-start">
@@ -121,8 +118,8 @@ export default function Hero() {
                 href="/dona"
                 className="inline-flex items-center justify-center gap-2 bg-terracota hover:bg-terracota-dark text-white font-sans font-medium px-7 py-3.5 rounded-full transition-colors text-base"
               >
-                <Heart size={18} fill="currentColor" />
-                Regala un asiento
+                <Gift size={18} />
+                Aporta un espacio
               </Link>
               <div className="flex flex-col items-center sm:items-start gap-1">
                 <Link
@@ -130,26 +127,25 @@ export default function Hero() {
                   className="inline-flex items-center justify-center gap-2 text-white font-sans font-medium px-7 py-3.5 rounded-full transition-opacity hover:opacity-90 text-base"
                   style={{ backgroundColor: "#1CBF45" }}
                 >
-                  Recibe un asiento
+                  Quiero participar
                 </Link>
                 <span className="text-verde/50 text-xs font-sans">
                   Inscríbete en un Círculo de Escucha
                 </span>
               </div>
             </div>
-
           </div>
 
-          {/* Right: círculo + ticker + mensaje — todo dentro del box beige */}
+          {/* Right: círculo + ticker */}
           <div className="flex justify-center">
             <div className="w-full max-w-sm bg-beige rounded-3xl flex flex-col items-center p-6 gap-4">
 
-              {/* Ticker — quién acaba de donar */}
+              {/* Ticker */}
               <div
                 style={{ transition: "opacity 350ms ease" }}
                 className={`inline-flex items-center gap-2.5 bg-white/70 px-4 py-2 rounded-full ${visible ? "opacity-100" : "opacity-0"}`}
               >
-                <Heart size={13} className="text-terracota shrink-0" fill="currentColor" />
+                <Gift size={13} className="text-terracota shrink-0" />
                 {complete ? (
                   <span className="text-sm font-sans text-terracota font-semibold whitespace-nowrap">
                     ¡Círculo completo! 🎉
@@ -157,9 +153,9 @@ export default function Hero() {
                 ) : (
                   <span className="text-sm font-sans text-verde/70 whitespace-nowrap">
                     <span className="font-semibold text-verde">{name}</span>
-                    {" ya regaló "}
+                    {" aportó "}
                     <span className="font-semibold text-terracota">
-                      {seats} {seats === 1 ? "asiento" : "asientos"}
+                      {seats} {seats === 1 ? "espacio" : "espacios"}
                     </span>
                   </span>
                 )}
@@ -177,18 +173,18 @@ export default function Hero() {
                 ) : litCount === 0 ? (
                   <>
                     Sé el primero en{" "}
-                    <span className="font-bold text-terracota">regalar un asiento</span>
+                    <span className="font-bold text-terracota">aportar un espacio</span>
                   </>
                 ) : remaining === 1 ? (
                   <>
                     ¡Falta solo{" "}
-                    <span className="font-bold text-terracota">1 asiento</span>{" "}
+                    <span className="font-bold text-terracota">1 espacio</span>{" "}
                     para completar un nuevo círculo!
                   </>
                 ) : (
                   <>
                     Faltan{" "}
-                    <span className="font-bold text-terracota">{remaining} asientos</span>{" "}
+                    <span className="font-bold text-terracota">{remaining} espacios</span>{" "}
                     para completar un nuevo círculo
                   </>
                 )}
@@ -230,7 +226,6 @@ export default function Hero() {
           </div>
         </div>
       )}
-
     </section>
   );
 }
@@ -251,85 +246,114 @@ export function CircleOfChairs({
   const cx = size / 2;
   const cy = size / 2;
 
+  const positions = Array.from({ length: totalSeats }, (_, i) => {
+    const angle = (i / totalSeats) * 2 * Math.PI - Math.PI / 2;
+    return {
+      x: cx + radius * Math.cos(angle),
+      y: cy + radius * Math.sin(angle),
+      lit: i < litCount,
+    };
+  });
+
+  // Ring (+1) and chord (+4) connections — deduplicated
+  const connections: Array<{ a: number; b: number }> = [];
+  const seen = new Set<string>();
+  for (let i = 0; i < totalSeats; i++) {
+    for (const offset of [1, 4]) {
+      const j = (i + offset) % totalSeats;
+      const a = Math.min(i, j);
+      const b = Math.max(i, j);
+      const key = `${a}-${b}`;
+      if (!seen.has(key)) {
+        seen.add(key);
+        connections.push({ a, b });
+      }
+    }
+  }
+
   return (
     <svg
       viewBox={`0 0 ${size} ${size}`}
       className="w-full h-full"
       aria-hidden="true"
     >
-      <circle cx={cx} cy={cy} r={radius * 0.52} fill="#C8197A" opacity="0.05" />
-      <circle cx={cx} cy={cy} r={radius * 0.38} fill="#C8197A" opacity="0.07" />
+      {/* Subtle background */}
+      <circle cx={cx} cy={cy} r={radius * 0.52} fill="#3D3D3D" opacity="0.03" />
+      <circle cx={cx} cy={cy} r={radius * 0.38} fill="#3D3D3D" opacity="0.04" />
+
+      {/* Dashed guide ring */}
       <circle
         cx={cx} cy={cy} r={radius}
         fill="none"
         stroke="#9B9B9B"
         strokeWidth="0.6"
         strokeDasharray="4 7"
-        opacity="0.1"
+        opacity="0.08"
       />
-      {Array.from({ length: totalSeats }).map((_, i) => {
-        const angle = (i / totalSeats) * 2 * Math.PI - Math.PI / 2;
-        const x = cx + radius * Math.cos(angle);
-        const y = cy + radius * Math.sin(angle);
-        const lit = i < litCount;
+
+      {/* Network lines */}
+      {connections.map(({ a, b }) => {
+        const pa = positions[a];
+        const pb = positions[b];
+        const bothLit = pa.lit && pb.lit;
+        const eitherLit = pa.lit || pb.lit;
         return (
           <line
-            key={`line-${i}`}
-            x1={cx} y1={cy} x2={x} y2={y}
-            stroke={lit ? "#C8197A" : "#9B9B9B"}
-            strokeWidth={lit ? "1" : "0.5"}
-            opacity={lit ? 0.18 : 0.07}
+            key={`net-${a}-${b}`}
+            x1={pa.x} y1={pa.y}
+            x2={pb.x} y2={pb.y}
+            stroke={bothLit ? "#3D3D3D" : "#9B9B9B"}
+            strokeWidth={bothLit ? 0.9 : 0.5}
+            opacity={bothLit ? 0.22 : eitherLit ? 0.1 : 0.06}
           />
         );
       })}
-      {Array.from({ length: totalSeats }).map((_, i) => {
-        const angle = (i / totalSeats) * 2 * Math.PI - Math.PI / 2;
-        const x = cx + radius * Math.cos(angle);
-        const y = cy + radius * Math.sin(angle);
-        const angleDeg = (angle * 180) / Math.PI;
-        const lit = i < litCount;
-        return (
-          <Chair key={`chair-${i}`} x={x} y={y} angleDeg={angleDeg} lit={lit} />
-        );
-      })}
-      <CenterHeart cx={cx} cy={cy} />
+
+      {/* Person nodes */}
+      {positions.map(({ x, y, lit }, i) => (
+        <Person key={`person-${i}`} x={x} y={y} lit={lit} />
+      ))}
+
+      {/* Center: listening symbol */}
+      <CenterListening cx={cx} cy={cy} />
     </svg>
   );
 }
 
-function Chair({ x, y, angleDeg, lit }: { x: number; y: number; angleDeg: number; lit: boolean }) {
-  const rot = angleDeg + 90;
-  const seatFill   = lit ? "#C8197A" : "#E2D8CC";
-  const seatStroke = lit ? "#A0146A" : "#C4B8A8";
-  const backFill   = lit ? "#8C1065" : "#CEC0AE";
-  const backStroke = lit ? "#6A0A4A" : "#B0A090";
+function Person({ x, y, lit }: { x: number; y: number; lit: boolean }) {
+  const fill = lit ? "#3D3D3D" : "#C4B8A8";
+  const stroke = lit ? "#1A1A1A" : "#A89888";
 
   return (
-    <g transform={`translate(${x},${y}) rotate(${rot})`}>
-      {lit && <circle cx={0} cy={0} r={22} fill="#C8197A" opacity={0.18} />}
-      <rect x={-12} y={-2} width={24} height={15} rx={4} fill={seatFill} stroke={seatStroke} strokeWidth={1.2} />
-      <rect x={-9} y={-17} width={18} height={15} rx={3.5} fill={backFill} stroke={backStroke} strokeWidth={1.2} />
-      <line x1={-12} y1={-2} x2={12} y2={-2} stroke="white" strokeWidth={1.5} opacity={0.6} />
+    <g transform={`translate(${x},${y})`}>
+      {lit && <circle cx={0} cy={0} r={19} fill="#3D3D3D" opacity={0.12} />}
+      {/* Head */}
+      <circle cx={0} cy={-9} r={5} fill={fill} stroke={stroke} strokeWidth={0.8} />
+      {/* Shoulders */}
+      <path d="M -9 6 Q -10 -3 0 -3 Q 10 -3 9 6 Z" fill={fill} stroke={stroke} strokeWidth={0.8} />
     </g>
   );
 }
 
-function CenterHeart({ cx, cy }: { cx: number; cy: number }) {
-  const heartPath = "M 20.84 4.61 a 5.5 5.5 0 0 0 -7.78 0 L 12 5.67 l -1.06 -1.06 a 5.5 5.5 0 0 0 -7.78 7.78 l 1.06 1.06 L 12 21.23 l 7.78 -7.78 1.06 -1.06 a 5.5 5.5 0 0 0 0 -7.78 z";
-  const s = 4.2;
+function CenterListening({ cx, cy }: { cx: number; cy: number }) {
+  // Upward arcs (210° each) centered on 12 o'clock — sound/listening waves
+  // Formula: M -r*cos15° r*sin15° A r r 0 1 0 r*cos15° r*sin15°
+  const arc = (r: number) =>
+    `M ${(-r * 0.966).toFixed(2)} ${(r * 0.259).toFixed(2)} A ${r} ${r} 0 1 0 ${(r * 0.966).toFixed(2)} ${(r * 0.259).toFixed(2)}`;
+
   return (
     <g transform={`translate(${cx},${cy})`}>
-      <circle cx={0} cy={0} r={58} fill="#C8197A" opacity={0.05} />
-      <circle cx={0} cy={0} r={46} fill="#C8197A" opacity={0.08} />
-      <circle cx={0} cy={0} r={34} fill="#C8197A" opacity={0.12} />
-      <circle cx={0} cy={0} r={30} fill="white" opacity={0.95} />
-      <g transform={`scale(${s}) translate(-12,-11)`}>
-        <path d={heartPath} fill="#A0146A" opacity={0.12} />
-      </g>
-      <g transform={`scale(${s}) translate(-12,-12)`}>
-        <path d={heartPath} fill="#C8197A" />
-      </g>
-      <ellipse cx={-5} cy={-8} rx={7} ry={4} fill="white" opacity={0.22} transform="rotate(-25,-5,-8)" />
+      {/* Background glow */}
+      <circle cx={0} cy={0} r={58} fill="#3D3D3D" opacity={0.03} />
+      <circle cx={0} cy={0} r={46} fill="#3D3D3D" opacity={0.05} />
+      <circle cx={0} cy={0} r={34} fill="#3D3D3D" opacity={0.07} />
+      <circle cx={0} cy={0} r={30} fill="white" opacity={0.96} />
+      {/* Listening arcs — all verde, progressive opacity */}
+      <path d={arc(20)} fill="none" stroke="#3D3D3D" strokeWidth={2}   strokeLinecap="round" opacity={0.18} />
+      <path d={arc(14)} fill="none" stroke="#3D3D3D" strokeWidth={2.2} strokeLinecap="round" opacity={0.38} />
+      <path d={arc(8)}  fill="none" stroke="#3D3D3D" strokeWidth={2.5} strokeLinecap="round" opacity={0.6}  />
+      {/* Center dot */}
+      <circle cx={0} cy={0} r={3} fill="#3D3D3D" opacity={0.6} />
     </g>
   );
 }

@@ -51,7 +51,7 @@ export default function AnimatedCircle() {
       >
         {complete ? (
           <p className="text-terracota font-heading text-base font-semibold">
-            ¡Círculo completo! Gracias a quienes regalaron un asiento 🎉
+            ¡Círculo completo! Gracias a quienes aportaron un espacio 🎉
           </p>
         ) : (
           <p className="text-verde/65 font-sans text-sm leading-snug">
@@ -61,7 +61,7 @@ export default function AnimatedCircle() {
                 <>
                   Falta{remaining > 1 ? "n" : ""}{" "}
                   <span className="font-bold text-terracota">
-                    {remaining} {remaining === 1 ? "asiento" : "asientos"}
+                    {remaining} {remaining === 1 ? "espacio" : "espacios"}
                   </span>{" "}
                   para completar un nuevo círculo
                 </>

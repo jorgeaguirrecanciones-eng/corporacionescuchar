@@ -1,7 +1,7 @@
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import Link from "next/link";
-import { Heart } from "lucide-react";
+import { Gift } from "lucide-react";
 
 /* ─── Data ─── */
 
@@ -328,15 +328,15 @@ export default function QuienesSomosPage() {
               ¿Quieres ser parte<br />de esta comunidad?
             </h2>
             <p className="text-verde/65 font-sans text-lg leading-relaxed mb-10">
-              Puedes participar en un círculo, apoyar nuestra misión abriendo un asiento, o simplemente compartir lo que hacemos.
+              Puedes participar en un círculo, apoyar nuestra misión aportando un espacio, o simplemente compartir lo que hacemos.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link
                 href="/dona"
                 className="inline-flex items-center justify-center gap-2 bg-terracota hover:bg-terracota-dark text-white font-sans font-semibold px-8 py-4 rounded-full transition-colors shadow-lg shadow-terracota/20"
               >
-                <Heart size={18} fill="currentColor" />
-                Regala un asiento
+                <Gift size={18} />
+                Aporta un espacio
               </Link>
               <Link
                 href="/circulos"

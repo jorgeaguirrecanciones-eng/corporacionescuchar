@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { Heart } from "lucide-react";
+import { Gift } from "lucide-react";
 
 const feed = [
   { name: "Camila", seats: 3 },
@@ -45,12 +45,12 @@ export default function DonorTicker() {
         visible ? "opacity-100" : "opacity-0"
       }`}
     >
-      <Heart size={13} className="text-terracota shrink-0" fill="currentColor" />
+      <Gift size={13} className="text-terracota shrink-0" />
       <span className="text-sm font-sans text-verde/70 whitespace-nowrap">
         <span className="font-semibold text-verde">{name}</span>
-        {" acaba de regalar "}
+        {" acaba de aportar "}
         <span className="font-semibold text-terracota">
-          {seats} {seats === 1 ? "asiento" : "asientos"}
+          {seats} {seats === 1 ? "espacio" : "espacios"}
         </span>
       </span>
     </div>
