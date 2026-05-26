@@ -125,7 +125,7 @@ export default function Hero() {
                 <Link
                   href="/circulos"
                   className="inline-flex items-center justify-center gap-2 text-white font-sans font-medium px-7 py-3.5 rounded-full transition-opacity hover:opacity-90 text-base"
-                  style={{ backgroundColor: "#1CBF45" }}
+                  style={{ backgroundColor: "#C8197A" }}
                 >
                   Quiero participar
                 </Link>
