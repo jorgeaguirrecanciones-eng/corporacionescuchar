@@ -121,18 +121,13 @@ export default function Hero() {
                 <Gift size={18} />
                 Aporta un espacio
               </Link>
-              <div className="flex flex-col items-center sm:items-start gap-1">
-                <Link
-                  href="/circulos"
-                  className="inline-flex items-center justify-center gap-2 text-white font-sans font-medium px-7 py-3.5 rounded-full transition-opacity hover:opacity-90 text-base"
-                  style={{ backgroundColor: "#C8197A" }}
-                >
-                  Quiero participar
-                </Link>
-                <span className="text-verde/50 text-xs font-sans">
-                  Inscríbete en un Círculo de Escucha
-                </span>
-              </div>
+              <Link
+                href="/circulos"
+                className="inline-flex items-center justify-center gap-2 text-white font-sans font-medium px-7 py-3.5 rounded-full transition-opacity hover:opacity-90 text-base"
+                style={{ backgroundColor: "#C8197A" }}
+              >
+                Participar en un círculo
+              </Link>
             </div>
           </div>
 
