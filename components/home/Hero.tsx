@@ -103,7 +103,7 @@ export default function Hero() {
             </button>
 
             <p className="text-verde/50 font-sans text-sm font-semibold uppercase tracking-widest mb-4">
-              Aporta un espacio en el Círculo de Escucha
+              Aporta un espacio en un Círculo de Escucha
             </p>
             <h1 className="font-heading text-[2.6rem] md:text-[3.2rem] leading-[1.1] text-verde mb-5">
               Escucharnos{" "}
