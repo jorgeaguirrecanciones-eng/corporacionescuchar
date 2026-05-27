@@ -14,10 +14,10 @@ const PHOTOS = [
 ];
 
 const pillars = [
-  { label: "Solo escucha, sin consejos", desc: "Sin interrupciones, sin soluciones, sin juicio" },
-  { label: "Nadie es más que nadie", desc: "Sin roles ni jerarquías. Todos iguales" },
-  { label: "Vínculos que duran", desc: "Conexiones reales que van más allá del círculo" },
-  { label: "Gratis, siempre", desc: "Sin costo ni compromiso, para siempre" },
+  { label: "Solo escucha, sin consejos", desc: "Sin interrupciones ni soluciones. Nadie te dice qué hacer" },
+  { label: "Nadie es más que nadie", desc: "Sin roles ni jerarquías. Todos en el mismo nivel" },
+  { label: "No estás solo", desc: "El descubrimiento de que otros cargan con lo mismo que tú" },
+  { label: "Gratis, siempre", desc: "Sin costo, sin compromiso, sin excepción" },
 ];
 
 export default function WhatIsACircle() {
@@ -37,6 +37,7 @@ export default function WhatIsACircle() {
           <p className="text-verde/70 text-lg leading-relaxed">
             Los Círculos de Escucha son espacios gratuitos donde las personas
             se reúnen, sin agenda ni jerarquías, solo a escucharse.
+            No es terapia. No es una charla. Es comunidad.
             Cada lunes, en todo Chile.
           </p>
         </div>

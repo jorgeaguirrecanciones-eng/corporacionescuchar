@@ -2,17 +2,17 @@ const pillars = [
   {
     icon: "👂",
     title: "Escucha",
-    desc: "Un espacio donde no hay que explicarse ni justificarse. Solo estar y ser escuchado.",
+    desc: "Un espacio donde no hace falta explicarse ni demostrar nada. Solo estar, y ser escuchado.",
   },
   {
     icon: "🤝",
     title: "Contención",
-    desc: "La sensación de no cargar solo con lo que uno trae.",
+    desc: "La certeza de que alguien en la sala sostiene lo que uno trae. Sin consejos. Sin juicio.",
   },
   {
     icon: "◎",
     title: "Comunidad",
-    desc: "Conexiones reales que se sostienen más allá del círculo.",
+    desc: "El descubrimiento de que no estás solo — y que eso, de verdad, cambia todo.",
   },
 ];
 
@@ -27,7 +27,7 @@ export default function WhatYouMakePossible() {
               Lo que haces posible
             </p>
             <h2 className="font-heading text-3xl md:text-4xl text-verde mb-8 leading-tight">
-              Cuando alguien es escuchado de verdad, algo cambia
+              El mundo no cambia de una vez. Cambia en el momento exacto en que alguien se siente escuchado por primera vez.
             </h2>
             <div className="flex flex-col gap-4">
               {pillars.map((p) => (
@@ -60,10 +60,10 @@ export default function WhatYouMakePossible() {
             <blockquote className="bg-white rounded-2xl p-5 shadow-sm border border-border relative">
               <span className="absolute -top-4 left-5 text-terracota text-5xl font-heading leading-none">"</span>
               <p className="text-verde font-sans text-sm leading-relaxed pt-3 mb-3">
-                Llegué sin ganas de hablar. Me sentí escuchada, comprendida y acompañada. Hoy me siento menos sola y parte de una comunidad que me hace bien.
+                No vine buscando terapia. Vine porque ya no sabía a quién contarle. Me fui sintiéndome menos solo, y con ganas de volver.
               </p>
               <footer className="text-verde/60 text-xs font-sans">
-                — Camila, participante de un Círculo de Escucha
+                — Jorge, participante de un Círculo de Escucha
               </footer>
             </blockquote>
           </div>

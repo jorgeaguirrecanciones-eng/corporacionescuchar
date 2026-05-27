@@ -3,25 +3,25 @@ const steps = [
     icon: "⌾",
     paso: "Paso 1",
     title: "Elige cuántos espacios aportar",
-    desc: "Cada espacio vale $7.000 y permite que una persona participe en un círculo.",
+    desc: "Cada espacio vale $7.000 y permite que una persona entre al círculo.",
   },
   {
     icon: "♡",
     paso: "Paso 2",
-    title: "Tu aporte financia círculos completamente gratuitos",
-    desc: "El 100% de tu donación va a sostener los espacios donde ocurre la escucha.",
+    title: "Tu aporte crea círculos completamente gratuitos",
+    desc: "El 100% de tu donación financia los espacios donde ocurre la escucha.",
   },
   {
     icon: "◎",
     paso: "Paso 3",
-    title: "Monitores certificados facilitan cada círculo",
-    desc: "Personas voluntarias, formadas por nosotros, garantizan la calidad y la calidez del espacio.",
+    title: "Monitores voluntarios facilitan cada círculo",
+    desc: "Personas capacitadas por nosotros garantizan la calidad y calidez del espacio.",
   },
   {
     icon: "✉",
     paso: "Paso 4",
     title: "Sabrás exactamente a quién escuchaste",
-    desc: "Al mes siguiente recibirás los nombres reales de quienes participaron gracias a tu aporte.",
+    desc: "Al mes siguiente recibirás los nombres reales de quienes participaron gracias a ti.",
   },
 ];
 
@@ -35,7 +35,7 @@ export default function HowItWorks() {
             Así funciona
           </span>
           <h2 className="font-heading text-3xl md:text-[2.6rem] text-verde leading-tight">
-            Aportar un espacio es más<br />concreto de lo que parece
+            Tu aporte no financia un programa.<br />Abre una puerta.
           </h2>
         </div>
 

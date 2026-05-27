@@ -103,14 +103,14 @@ export default function Hero() {
             </button>
 
             <p className="text-verde/50 font-sans text-sm font-semibold uppercase tracking-widest mb-4">
-              Escucharnos es urgente.
+              Aporta un espacio en el Círculo de Escucha
             </p>
             <h1 className="font-heading text-[2.6rem] md:text-[3.2rem] leading-[1.1] text-verde mb-5">
-              Aporta un espacio en el{" "}
-              <span className="text-terracota">Círculo de Escucha.</span>
+              Escucharnos{" "}
+              <span className="text-terracota">es urgente.</span>
             </h1>
             <p className="text-verde/70 text-lg leading-relaxed mb-8 max-w-md">
-              Para que quien más lo necesita encuentre, por fin, a alguien que lo escuche de verdad.
+              No te pedimos que resuelvas la soledad del mundo. Solo que hagas posible que una persona más sepa lo que es ser escuchada de verdad.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-3 items-start">

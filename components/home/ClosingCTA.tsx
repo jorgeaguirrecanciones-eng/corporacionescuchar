@@ -22,7 +22,7 @@ export default function ClosingCTA() {
               Escucharnos es urgente.
             </h2>
             <p className="text-verde/60 font-sans mb-8 leading-relaxed">
-              Abre un espacio para que alguien, esta semana, no tenga que cargar solo con lo suyo.
+              Hay cosas en las que gastas dinero que se terminan. Esto deja una huella en alguien para siempre. Un mundo que sabe escuchar es un mundo menos violento, menos solo, menos roto.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-3">
