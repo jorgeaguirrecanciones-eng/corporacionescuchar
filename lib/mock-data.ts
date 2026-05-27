@@ -24,6 +24,7 @@ export interface Participant {
   name: string;
   email: string;
   phone?: string;
+  age: number;
   circle: string;
   circleType: CircleType;
   period: string; // YYYY-MM
@@ -216,37 +217,37 @@ export const DONORS: Donor[] = [
 
 export const PARTICIPANTS: Participant[] = [
   // May 2026
-  { id: "p1",  name: "María González",     email: "maria.glez@gmail.com",   circle: "Círculo Online — Lunes 19:30",         circleType: "online",      period: "2026-05", registeredAt: "2026-05-02" },
-  { id: "p2",  name: "Pedro Alvarado",     email: "pedro.alv@gmail.com",    circle: "Círculo Online — Lunes 19:30",         circleType: "online",      period: "2026-05", registeredAt: "2026-05-03" },
-  { id: "p3",  name: "Ana Riquelme",       email: "ana.riq@outlook.com",    circle: "Círculo Online — Lunes 19:30",         circleType: "online",      period: "2026-05", registeredAt: "2026-05-04" },
-  { id: "p4",  name: "Carlos Fuentes",     email: "carlos.f@gmail.com",     circle: "Círculo Online — Lunes 19:30",         circleType: "online",      period: "2026-05", registeredAt: "2026-05-05" },
-  { id: "p5",  name: "Lucía Vargas",       email: "lucia.v@hotmail.com",    circle: "Círculo Online — Lunes 19:30",         circleType: "online",      period: "2026-05", registeredAt: "2026-05-06" },
-  { id: "p6",  name: "Roberto Castillo",   email: "rcastillo@gmail.com",    circle: "Círculo Presencial — Santiago Centro", circleType: "presencial",  period: "2026-05", registeredAt: "2026-05-06" },
-  { id: "p7",  name: "Carmen Flores",      email: "carmen.f@gmail.com",     circle: "Círculo Presencial — Santiago Centro", circleType: "presencial",  period: "2026-05", registeredAt: "2026-05-07" },
-  { id: "p8",  name: "José Martínez",      email: "jose.mtz@gmail.com",     circle: "Círculo Presencial — Santiago Centro", circleType: "presencial",  period: "2026-05", registeredAt: "2026-05-08" },
-  { id: "p9",  name: "Isabel Rojas",       email: "isabel.r@gmail.com",     circle: "Círculo Presencial — Santiago Centro", circleType: "presencial",  period: "2026-05", registeredAt: "2026-05-09" },
-  { id: "p10", name: "Pablo Reyes",        email: "pablo.reyes@gmail.com",  circle: "Círculo Presencial — Santiago Centro", circleType: "presencial",  period: "2026-05", registeredAt: "2026-05-10" },
-  { id: "p11", name: "Andrea Sepúlveda",   email: "andrea.sep@gmail.com",   circle: "Círculo Presencial — Ñuñoa",           circleType: "presencial",  period: "2026-05", registeredAt: "2026-05-12" },
-  { id: "p12", name: "Miguel Araya",       email: "miguel.a@outlook.com",   circle: "Círculo Presencial — Ñuñoa",           circleType: "presencial",  period: "2026-05", registeredAt: "2026-05-13" },
-  { id: "p13", name: "Daniela Castro",     email: "dani.castro@gmail.com",  circle: "Círculo Presencial — Ñuñoa",           circleType: "presencial",  period: "2026-05", registeredAt: "2026-05-14" },
-  { id: "p14", name: "Francisca Molina",   email: "franci.m@gmail.com",     circle: "Círculo Presencial — Ñuñoa",           circleType: "presencial",  period: "2026-05", registeredAt: "2026-05-15" },
-  { id: "p15", name: "Cristóbal Díaz",     email: "cristobal.d@gmail.com",  circle: "Círculo Presencial — Ñuñoa",           circleType: "presencial",  period: "2026-05", registeredAt: "2026-05-16" },
+  { id: "p1",  name: "María González",     email: "maria.glez@gmail.com",   age: 34, circle: "Círculo Online — Lunes 19:30",         circleType: "online",      period: "2026-05", registeredAt: "2026-05-02" },
+  { id: "p2",  name: "Pedro Alvarado",     email: "pedro.alv@gmail.com",    age: 28, circle: "Círculo Online — Lunes 19:30",         circleType: "online",      period: "2026-05", registeredAt: "2026-05-03" },
+  { id: "p3",  name: "Ana Riquelme",       email: "ana.riq@outlook.com",    age: 41, circle: "Círculo Online — Lunes 19:30",         circleType: "online",      period: "2026-05", registeredAt: "2026-05-04" },
+  { id: "p4",  name: "Carlos Fuentes",     email: "carlos.f@gmail.com",     age: 52, circle: "Círculo Online — Lunes 19:30",         circleType: "online",      period: "2026-05", registeredAt: "2026-05-05" },
+  { id: "p5",  name: "Lucía Vargas",       email: "lucia.v@hotmail.com",    age: 29, circle: "Círculo Online — Lunes 19:30",         circleType: "online",      period: "2026-05", registeredAt: "2026-05-06" },
+  { id: "p6",  name: "Roberto Castillo",   email: "rcastillo@gmail.com",    age: 37, circle: "Círculo Presencial — Santiago Centro", circleType: "presencial",  period: "2026-05", registeredAt: "2026-05-06" },
+  { id: "p7",  name: "Carmen Flores",      email: "carmen.f@gmail.com",     age: 45, circle: "Círculo Presencial — Santiago Centro", circleType: "presencial",  period: "2026-05", registeredAt: "2026-05-07" },
+  { id: "p8",  name: "José Martínez",      email: "jose.mtz@gmail.com",     age: 31, circle: "Círculo Presencial — Santiago Centro", circleType: "presencial",  period: "2026-05", registeredAt: "2026-05-08" },
+  { id: "p9",  name: "Isabel Rojas",       email: "isabel.r@gmail.com",     age: 58, circle: "Círculo Presencial — Santiago Centro", circleType: "presencial",  period: "2026-05", registeredAt: "2026-05-09" },
+  { id: "p10", name: "Pablo Reyes",        email: "pablo.reyes@gmail.com",  age: 24, circle: "Círculo Presencial — Santiago Centro", circleType: "presencial",  period: "2026-05", registeredAt: "2026-05-10" },
+  { id: "p11", name: "Andrea Sepúlveda",   email: "andrea.sep@gmail.com",   age: 33, circle: "Círculo Presencial — Ñuñoa",           circleType: "presencial",  period: "2026-05", registeredAt: "2026-05-12" },
+  { id: "p12", name: "Miguel Araya",       email: "miguel.a@outlook.com",   age: 47, circle: "Círculo Presencial — Ñuñoa",           circleType: "presencial",  period: "2026-05", registeredAt: "2026-05-13" },
+  { id: "p13", name: "Daniela Castro",     email: "dani.castro@gmail.com",  age: 26, circle: "Círculo Presencial — Ñuñoa",           circleType: "presencial",  period: "2026-05", registeredAt: "2026-05-14" },
+  { id: "p14", name: "Francisca Molina",   email: "franci.m@gmail.com",     age: 39, circle: "Círculo Presencial — Ñuñoa",           circleType: "presencial",  period: "2026-05", registeredAt: "2026-05-15" },
+  { id: "p15", name: "Cristóbal Díaz",     email: "cristobal.d@gmail.com",  age: 22, circle: "Círculo Presencial — Ñuñoa",           circleType: "presencial",  period: "2026-05", registeredAt: "2026-05-16" },
   // April 2026
-  { id: "p16", name: "Renata Silva",       email: "renata.s@gmail.com",     circle: "Círculo Online — Lunes 19:30",         circleType: "online",      period: "2026-04", registeredAt: "2026-04-03" },
-  { id: "p17", name: "Ignacio Bravo",      email: "igna.bravo@gmail.com",   circle: "Círculo Online — Lunes 19:30",         circleType: "online",      period: "2026-04", registeredAt: "2026-04-04" },
-  { id: "p18", name: "Paola Cáceres",      email: "paola.c@hotmail.com",    circle: "Círculo Presencial — Santiago Centro", circleType: "presencial",  period: "2026-04", registeredAt: "2026-04-05" },
-  { id: "p19", name: "Rodrigo Espinoza",   email: "rodrigo.e@gmail.com",    circle: "Círculo Presencial — Santiago Centro", circleType: "presencial",  period: "2026-04", registeredAt: "2026-04-06" },
-  { id: "p20", name: "Bárbara Núñez",      email: "barbara.n@gmail.com",    circle: "Círculo Presencial — Ñuñoa",           circleType: "presencial",  period: "2026-04", registeredAt: "2026-04-08" },
-  { id: "p21", name: "Gabriel Palma",      email: "gabriel.p@gmail.com",    circle: "Círculo Presencial — Ñuñoa",           circleType: "presencial",  period: "2026-04", registeredAt: "2026-04-10" },
-  { id: "p22", name: "Natalia Cortés",     email: "natalia.c@gmail.com",    circle: "Círculo Online — Lunes 19:30",         circleType: "online",      period: "2026-04", registeredAt: "2026-04-11" },
-  { id: "p23", name: "Eduardo Lara",       email: "edu.lara@gmail.com",     circle: "Círculo Presencial — Santiago Centro", circleType: "presencial",  period: "2026-04", registeredAt: "2026-04-12" },
-  { id: "p24", name: "Catalina Mora",      email: "cata.mora@outlook.com",  circle: "Círculo Presencial — Ñuñoa",           circleType: "presencial",  period: "2026-04", registeredAt: "2026-04-14" },
-  { id: "p25", name: "Simón Vergara",      email: "simon.v@gmail.com",      circle: "Círculo Online — Lunes 19:30",         circleType: "online",      period: "2026-04", registeredAt: "2026-04-15" },
-  { id: "p26", name: "Amanda Leiva",       email: "amanda.l@gmail.com",     circle: "Círculo Presencial — Santiago Centro", circleType: "presencial",  period: "2026-04", registeredAt: "2026-04-16" },
-  { id: "p27", name: "Nicolás Pinto",      email: "nico.pinto@gmail.com",   circle: "Círculo Presencial — Ñuñoa",           circleType: "presencial",  period: "2026-04", registeredAt: "2026-04-18" },
-  { id: "p28", name: "Lorena Salinas",     email: "lorena.s@gmail.com",     circle: "Círculo Online — Lunes 19:30",         circleType: "online",      period: "2026-04", registeredAt: "2026-04-19" },
-  { id: "p29", name: "Marcelo Fuenzalida", email: "marcelo.f@hotmail.com",  circle: "Círculo Presencial — Santiago Centro", circleType: "presencial",  period: "2026-04", registeredAt: "2026-04-20" },
-  { id: "p30", name: "Ximena Tapia",       email: "ximena.t@gmail.com",     circle: "Círculo Presencial — Ñuñoa",           circleType: "presencial",  period: "2026-04", registeredAt: "2026-04-22" },
+  { id: "p16", name: "Renata Silva",       email: "renata.s@gmail.com",     age: 30, circle: "Círculo Online — Lunes 19:30",         circleType: "online",      period: "2026-04", registeredAt: "2026-04-03" },
+  { id: "p17", name: "Ignacio Bravo",      email: "igna.bravo@gmail.com",   age: 43, circle: "Círculo Online — Lunes 19:30",         circleType: "online",      period: "2026-04", registeredAt: "2026-04-04" },
+  { id: "p18", name: "Paola Cáceres",      email: "paola.c@hotmail.com",    age: 36, circle: "Círculo Presencial — Santiago Centro", circleType: "presencial",  period: "2026-04", registeredAt: "2026-04-05" },
+  { id: "p19", name: "Rodrigo Espinoza",   email: "rodrigo.e@gmail.com",    age: 51, circle: "Círculo Presencial — Santiago Centro", circleType: "presencial",  period: "2026-04", registeredAt: "2026-04-06" },
+  { id: "p20", name: "Bárbara Núñez",      email: "barbara.n@gmail.com",    age: 27, circle: "Círculo Presencial — Ñuñoa",           circleType: "presencial",  period: "2026-04", registeredAt: "2026-04-08" },
+  { id: "p21", name: "Gabriel Palma",      email: "gabriel.p@gmail.com",    age: 44, circle: "Círculo Presencial — Ñuñoa",           circleType: "presencial",  period: "2026-04", registeredAt: "2026-04-10" },
+  { id: "p22", name: "Natalia Cortés",     email: "natalia.c@gmail.com",    age: 32, circle: "Círculo Online — Lunes 19:30",         circleType: "online",      period: "2026-04", registeredAt: "2026-04-11" },
+  { id: "p23", name: "Eduardo Lara",       email: "edu.lara@gmail.com",     age: 55, circle: "Círculo Presencial — Santiago Centro", circleType: "presencial",  period: "2026-04", registeredAt: "2026-04-12" },
+  { id: "p24", name: "Catalina Mora",      email: "cata.mora@outlook.com",  age: 29, circle: "Círculo Presencial — Ñuñoa",           circleType: "presencial",  period: "2026-04", registeredAt: "2026-04-14" },
+  { id: "p25", name: "Simón Vergara",      email: "simon.v@gmail.com",      age: 38, circle: "Círculo Online — Lunes 19:30",         circleType: "online",      period: "2026-04", registeredAt: "2026-04-15" },
+  { id: "p26", name: "Amanda Leiva",       email: "amanda.l@gmail.com",     age: 46, circle: "Círculo Presencial — Santiago Centro", circleType: "presencial",  period: "2026-04", registeredAt: "2026-04-16" },
+  { id: "p27", name: "Nicolás Pinto",      email: "nico.pinto@gmail.com",   age: 23, circle: "Círculo Presencial — Ñuñoa",           circleType: "presencial",  period: "2026-04", registeredAt: "2026-04-18" },
+  { id: "p28", name: "Lorena Salinas",     email: "lorena.s@gmail.com",     age: 49, circle: "Círculo Online — Lunes 19:30",         circleType: "online",      period: "2026-04", registeredAt: "2026-04-19" },
+  { id: "p29", name: "Marcelo Fuenzalida", email: "marcelo.f@hotmail.com",  age: 35, circle: "Círculo Presencial — Santiago Centro", circleType: "presencial",  period: "2026-04", registeredAt: "2026-04-20" },
+  { id: "p30", name: "Ximena Tapia",       email: "ximena.t@gmail.com",     age: 40, circle: "Círculo Presencial — Ñuñoa",           circleType: "presencial",  period: "2026-04", registeredAt: "2026-04-22" },
 ];
 
 // ─── Payments ─────────────────────────────────────────────────────────────────

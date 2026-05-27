@@ -180,7 +180,7 @@ export default function MatchingPage() {
                         <div className="flex flex-wrap gap-1.5">
                           {assignedParticipants.map(p => (
                             <span key={p.id} className="text-[11px] bg-[#F5EFE6] text-[#555] font-sans px-2.5 py-1 rounded-full">
-                              {p.name}
+                              {p.name.split(" ")[0]}, {p.age} años
                             </span>
                           ))}
                         </div>
@@ -306,7 +306,9 @@ export default function MatchingPage() {
                             {p.name.charAt(0)}
                           </div>
                           <div>
-                            <div className="font-semibold text-[#1A1A1A] text-sm">{p.name}</div>
+                            <div className="font-semibold text-[#1A1A1A] text-sm">
+                              {p.name.split(" ")[0]}, {p.age} años
+                            </div>
                             <div className="text-[11px] text-[#999]">{p.circle}</div>
                           </div>
                         </div>
