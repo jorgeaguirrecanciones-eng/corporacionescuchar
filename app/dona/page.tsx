@@ -231,13 +231,6 @@ export default function DonaPage() {
                 </div>
               </div>
 
-              {/* Volver */}
-              <div className="w-full mb-4">
-                <button onClick={() => goToStep(2)} className="flex items-center gap-1.5 text-verde/60 font-sans font-medium px-5 py-3 rounded-full border-2 border-verde/20 hover:border-verde/40 transition-colors">
-                  <ArrowLeft size={16} />Volver
-                </button>
-              </div>
-
               {/* Mercado Pago Card Payment Brick */}
               <div className="w-full">
                 <div className="text-[10px] font-sans font-bold text-verde/40 uppercase tracking-widest mb-3">Datos de pago</div>
@@ -248,6 +241,13 @@ export default function DonaPage() {
                   onSuccess={() => goToStep(4)}
                   onPayError={() => {}}
                 />
+              </div>
+
+              {/* Volver */}
+              <div className="w-full mt-4">
+                <button onClick={() => goToStep(2)} className="flex items-center gap-1.5 text-verde/60 font-sans font-medium px-5 py-3 rounded-full border-2 border-verde/20 hover:border-verde/40 transition-colors">
+                  <ArrowLeft size={16} />Volver
+                </button>
               </div>
 
               <p className="text-verde/30 text-[11px] font-sans text-center mt-4">
