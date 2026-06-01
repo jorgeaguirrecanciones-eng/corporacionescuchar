@@ -59,7 +59,6 @@ export default function MPCardBrick({ amount, email, name, onSuccess, onPayError
         initialization={{ amount, payer: { email } }}
         customization={{
           visual: { style: { theme: "default" } },
-          paymentMethods: { creditCard: "all", debitCard: "all" },
         }}
         onSubmit={async (data) => {
           if (!name.trim() || !email.trim()) {
