@@ -8,6 +8,7 @@ import {
   UserCheck,
   GitMerge,
   Mail,
+  Banknote,
   ExternalLink,
   Menu,
   X,
@@ -18,8 +19,9 @@ const NAV = [
   { href: "/admin",          label: "Resumen",    icon: LayoutDashboard },
   { href: "/admin/donantes", label: "Donantes",   icon: Users },
   { href: "/admin/inscritos",label: "Inscritos",  icon: UserCheck },
-  { href: "/admin/matching", label: "Matching",   icon: GitMerge },
-  { href: "/admin/emails",   label: "Emails",     icon: Mail },
+  { href: "/admin/matching",       label: "Matching",       icon: GitMerge },
+  { href: "/admin/transferencias", label: "Transferencias", icon: Banknote },
+  { href: "/admin/emails",         label: "Emails",         icon: Mail },
 ];
 
 export default function AdminSidebar() {

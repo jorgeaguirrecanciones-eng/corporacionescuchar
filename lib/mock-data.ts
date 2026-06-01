@@ -40,6 +40,28 @@ export interface Payment {
   period: string;
 }
 
+export type TransferStatus = "pendiente" | "validada" | "rechazada";
+
+export interface TransferDonation {
+  id: string;
+  name: string;
+  email: string;
+  amount: number;
+  seats: number;
+  frequency: "monthly" | "once";
+  status: TransferStatus;
+  notifiedAt: string; // ISO date
+  note?: string;
+}
+
+export const MOCK_TRANSFERS: TransferDonation[] = [
+  { id: "t1", name: "Valentina Soto",   email: "vsoto@gmail.com",       amount: 21000, seats: 3, frequency: "once",    status: "pendiente",  notifiedAt: "2026-05-28T10:14:00Z" },
+  { id: "t2", name: "Rodrigo Mendoza",  email: "rmendoza@outlook.com",  amount: 35000, seats: 5, frequency: "once",    status: "pendiente",  notifiedAt: "2026-05-27T16:42:00Z" },
+  { id: "t3", name: "Francisca Reyes",  email: "freyes@gmail.com",      amount: 14000, seats: 2, frequency: "monthly", status: "validada",   notifiedAt: "2026-05-25T09:30:00Z" },
+  { id: "t4", name: "Tomás Ibáñez",     email: "tibañez@empresa.cl",    amount: 70000, seats: 10,frequency: "once",    status: "validada",   notifiedAt: "2026-05-22T14:11:00Z" },
+  { id: "t5", name: "Daniela Morales",  email: "dmorales@gmail.com",    amount: 7000,  seats: 1, frequency: "once",    status: "rechazada",  notifiedAt: "2026-05-20T08:55:00Z", note: "Monto no coincide" },
+];
+
 export interface MonthlyMatch {
   period: string;
   donorId: string;
