@@ -62,6 +62,7 @@ export default function DonaPage() {
   const [email, setEmail] = useState("");
   const [paying, setPaying] = useState(false);
   const [brickError, setBrickError] = useState<string | null>(null);
+  const [brickLoading, setBrickLoading] = useState(true);
   const brickControllerRef = useRef<any>(null);
 
   const effectiveSeats = showCustom
@@ -74,33 +75,48 @@ export default function DonaPage() {
   /* ─── Montar el Card Payment Brick real al llegar al paso 3 ─── */
   useEffect(() => {
     if (step !== 3) return;
+    setBrickLoading(true);
+    setBrickError(null);
 
     let scriptEl: HTMLScriptElement | null = null;
 
     const mount = async () => {
+      // Si el SDK ya está cargado, reutilizarlo
+      if ((window as any).MercadoPago) {
+        initBrick();
+        return;
+      }
+
       scriptEl = document.createElement("script");
       scriptEl.src = "https://sdk.mercadopago.com/v2/mercadopago.js";
       scriptEl.async = true;
+      scriptEl.onerror = () => {
+        setBrickLoading(false);
+        setBrickError("No se pudo cargar Mercado Pago. Verifica tu conexión e intenta de nuevo.");
+      };
+      scriptEl.onload = initBrick;
+      document.head.appendChild(scriptEl);
+    };
 
-      scriptEl.onload = async () => {
-        try {
-          const mp = new (window as any).MercadoPago(MP_PUBLIC_KEY, {
-            locale: "es-CL",
-          });
-          const bricksBuilder = mp.bricks();
+    const initBrick = async () => {
+      try {
+        const mp = new (window as any).MercadoPago(MP_PUBLIC_KEY, {
+          locale: "es-CL",
+        });
+        const bricksBuilder = mp.bricks();
 
-          const controller = await bricksBuilder.create(
-            "cardPayment",
-            "cardPaymentBrick_container",
-            {
-              initialization: { amount: total },
-              customization: {
-                visual: { style: { theme: "default" } },
-                paymentMethods: { creditCard: "all", debitCard: "all" },
-              },
-              callbacks: {
-                onReady: () => {},
-                onSubmit: async (cardFormData: any) => {
+        const controller = await bricksBuilder.create(
+          "cardPayment",
+          "cardPaymentBrick_container",
+          {
+            initialization: { amount: total },
+            customization: {
+              visual: { style: { theme: "default" } },
+              paymentMethods: { creditCard: "all", debitCard: "all" },
+            },
+            callbacks: {
+              onReady: () => { setBrickLoading(false); },
+              onSubmit: async (cardFormData: any) => {
                   if (!name.trim() || !email.trim()) {
                     setBrickError(
                       "Por favor completa tu nombre y correo antes de pagar."
@@ -138,19 +154,18 @@ export default function DonaPage() {
                 },
                 onError: (error: any) => {
                   console.error("MP Brick error:", error);
+                  setBrickLoading(false);
+                  setBrickError("Error en el formulario de pago. Recarga la página.");
                 },
               },
             }
           );
           brickControllerRef.current = controller;
-        } catch {
-          setBrickError(
-            "No se pudo cargar el formulario de pago. Recarga la página."
-          );
+        } catch (err) {
+          console.error("Error iniciando brick:", err);
+          setBrickLoading(false);
+          setBrickError("No se pudo cargar el formulario de pago. Recarga la página.");
         }
-      };
-
-      document.head.appendChild(scriptEl);
     };
 
     mount();
@@ -465,6 +480,15 @@ export default function DonaPage() {
                 <div className="text-[10px] font-sans font-bold text-verde/40 uppercase tracking-widest mb-3">
                   Datos de pago
                 </div>
+                {brickLoading && (
+                  <div className="w-full bg-white rounded-xl border border-verde/10 px-5 py-8 flex flex-col items-center gap-3">
+                    <svg className="animate-spin w-6 h-6 text-[#009EE3]" viewBox="0 0 24 24" fill="none">
+                      <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"/>
+                      <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"/>
+                    </svg>
+                    <span className="text-verde/50 text-sm font-sans">Cargando formulario de pago…</span>
+                  </div>
+                )}
                 <div id="cardPaymentBrick_container" className="w-full" />
               </div>
 
