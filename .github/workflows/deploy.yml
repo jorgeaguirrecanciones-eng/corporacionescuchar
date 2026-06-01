@@ -25,8 +25,11 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Build
+      - name: Build Next.js
         run: npm run build
+
+      - name: Bundle Cloudflare Worker
+        run: npx esbuild worker/index.js --bundle --outfile=out/_worker.js --format=esm --platform=browser --target=es2022
 
       - name: Deploy to Cloudflare Pages
         uses: cloudflare/wrangler-action@v3
