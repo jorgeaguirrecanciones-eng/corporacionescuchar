@@ -65,7 +65,7 @@ export default function DonaPage() {
   const [seats, setSeats] = useState(3);
   const [showCustom, setShowCustom] = useState(false);
   const [customInput, setCustomInput] = useState("13");
-  const [frequency, setFrequency] = useState<Frequency>("monthly");
+  const [frequency, setFrequency] = useState<Frequency>("once");
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
 
@@ -107,18 +107,23 @@ export default function DonaPage() {
                 )}
               </div>
 
-              <div className="text-center mb-4">
-                <div className="font-heading text-6xl font-bold text-verde leading-none tabular-nums">{effectiveSeats}</div>
-                <div className="text-verde/50 font-sans text-sm mt-0.5">espacio{effectiveSeats !== 1 ? "s" : ""}</div>
-                <div className="mt-2 text-terracota font-heading text-2xl font-bold leading-none">{fmt(total)}</div>
+              {/* Contador + monto en misma fila */}
+              <div className="flex items-baseline justify-center gap-3 mb-4">
+                <div className="flex items-baseline gap-1.5">
+                  <span className="font-heading text-6xl font-bold text-verde leading-none tabular-nums">{effectiveSeats}</span>
+                  <span className="text-verde/50 font-sans text-sm">espacio{effectiveSeats !== 1 ? "s" : ""}</span>
+                </div>
+                <span className="text-verde/25 font-sans text-xl">·</span>
+                <span className="text-terracota font-heading text-2xl font-bold">{fmt(total)}</span>
               </div>
 
+              {/* Presets + Más en misma fila */}
               <div className="flex flex-wrap justify-center gap-2 mb-4">
                 {PRESETS.map((p) => (
                   <button
                     key={p}
                     onClick={() => { setSeats(p); setShowCustom(false); }}
-                    className={`w-12 h-12 rounded-full font-sans font-bold text-base transition-all duration-200 ${
+                    className={`w-10 h-10 rounded-full font-sans font-bold text-sm transition-all duration-200 ${
                       !showCustom && seats === p
                         ? "bg-[#6B2DB5] text-white shadow-lg shadow-[#6B2DB5]/25 scale-110"
                         : "bg-white text-verde border-2 border-verde/20 hover:border-verde/50 hover:scale-105"
@@ -129,7 +134,7 @@ export default function DonaPage() {
                 ))}
                 <button
                   onClick={() => { setShowCustom(true); setCustomInput("13"); }}
-                  className={`px-4 h-12 rounded-full font-sans font-bold text-sm transition-all duration-200 ${
+                  className={`px-4 h-10 rounded-full font-sans font-bold text-sm transition-all duration-200 ${
                     showCustom ? "bg-verde text-white shadow-lg shadow-verde/25" : "bg-white text-verde border-2 border-verde/20 hover:border-verde/50"
                   }`}
                 >
@@ -168,6 +173,21 @@ export default function DonaPage() {
               </p>
 
               <div className="flex flex-col gap-3 w-full mb-5">
+                {/* Donación única primero (default) */}
+                <button onClick={() => setFrequency("once")} className={`rounded-2xl p-4 text-left border-2 transition-all duration-200 ${frequency === "once" ? "border-terracota bg-white shadow-xl shadow-terracota/10" : "border-verde/20 bg-white hover:border-verde/40"}`}>
+                  <div className="flex items-start justify-between gap-3">
+                    <div className="flex-1">
+                      <div className="font-heading text-lg text-verde font-bold mb-1">Donación única</div>
+                      <div className="text-verde/60 font-sans text-sm leading-snug">Un aporte puntual que permite sostener varios círculos. Sin compromisos.</div>
+                      <div className="mt-3 text-terracota font-heading text-xl font-bold">{fmt(total)}<span className="text-sm font-sans font-normal text-verde/45 ml-1">una vez</span></div>
+                    </div>
+                    <div className={`w-6 h-6 rounded-full border-2 flex items-center justify-center shrink-0 mt-0.5 ${frequency === "once" ? "border-terracota bg-terracota" : "border-verde/25"}`}>
+                      {frequency === "once" && <Check size={12} className="text-white" strokeWidth={3} />}
+                    </div>
+                  </div>
+                </button>
+
+                {/* Mensual segundo */}
                 <button onClick={() => setFrequency("monthly")} className={`rounded-2xl p-4 text-left border-2 transition-all duration-200 ${frequency === "monthly" ? "border-terracota bg-white shadow-xl shadow-terracota/10" : "border-verde/20 bg-white hover:border-verde/40"}`}>
                   <div className="flex items-start justify-between gap-3">
                     <div className="flex-1">
@@ -185,19 +205,6 @@ export default function DonaPage() {
                       <span className="text-verde/60 text-xs font-sans">La opción más poderosa — un espacio permanente para quien más lo necesita</span>
                     </div>
                   )}
-                </button>
-
-                <button onClick={() => setFrequency("once")} className={`rounded-2xl p-4 text-left border-2 transition-all duration-200 ${frequency === "once" ? "border-terracota bg-white shadow-xl shadow-terracota/10" : "border-verde/20 bg-white hover:border-verde/40"}`}>
-                  <div className="flex items-start justify-between gap-3">
-                    <div className="flex-1">
-                      <div className="font-heading text-lg text-verde font-bold mb-1">Donación única</div>
-                      <div className="text-verde/60 font-sans text-sm leading-snug">Un aporte puntual que permite sostener varios círculos. Sin compromisos.</div>
-                      <div className="mt-3 text-terracota font-heading text-xl font-bold">{fmt(total)}<span className="text-sm font-sans font-normal text-verde/45 ml-1">una vez</span></div>
-                    </div>
-                    <div className={`w-6 h-6 rounded-full border-2 flex items-center justify-center shrink-0 mt-0.5 ${frequency === "once" ? "border-terracota bg-terracota" : "border-verde/25"}`}>
-                      {frequency === "once" && <Check size={12} className="text-white" strokeWidth={3} />}
-                    </div>
-                  </div>
                 </button>
               </div>
 
@@ -272,26 +279,6 @@ export default function DonaPage() {
                 Paso 4 de 4
               </span>
 
-              {/* Header de seguridad */}
-              <div className="w-full flex items-center gap-3 bg-[#009EE3]/8 border border-[#009EE3]/20 rounded-2xl px-4 py-3 mb-5">
-                <div className="w-9 h-9 bg-[#009EE3] rounded-full flex items-center justify-center shrink-0">
-                  <Lock size={15} className="text-white" />
-                </div>
-                <div>
-                  <div className="text-[#007BBF] font-sans font-semibold text-sm leading-tight">
-                    Pago seguro vía Mercado Pago
-                  </div>
-                  <div className="text-[#009EE3]/70 font-sans text-xs mt-0.5">
-                    Débito o crédito · cifrado SSL · nunca vemos tu tarjeta
-                  </div>
-                </div>
-                <svg viewBox="0 0 80 32" className="h-5 ml-auto shrink-0 opacity-70">
-                  <rect width="80" height="32" rx="4" fill="#009EE3"/>
-                  <text x="8" y="21" fill="white" fontSize="11" fontFamily="sans-serif" fontWeight="bold">mercado</text>
-                  <text x="8" y="21" fill="white" fontSize="11" fontFamily="sans-serif" fontWeight="bold">pago</text>
-                </svg>
-              </div>
-
               {/* Resumen del monto */}
               <div className="w-full bg-verde rounded-2xl px-5 py-3 mb-5 flex items-center justify-between">
                 <div className="text-white font-sans text-sm">
@@ -311,8 +298,19 @@ export default function DonaPage() {
                 />
               </div>
 
+              {/* Badge de seguridad debajo del brick — con logo oficial MP */}
+              <div className="w-full mt-4 flex items-center justify-center gap-2 text-verde/40">
+                <Lock size={12} />
+                <span className="text-xs font-sans">Pago seguro · débito o crédito vía</span>
+                <img
+                  src="https://http2.mlstatic.com/frontend-assets/mp-web-navigation/ui-navigation/6.3.5/mercadopago/logo__large@2x.png"
+                  alt="Mercado Pago"
+                  className="h-4 opacity-50"
+                />
+              </div>
+
               {/* Volver */}
-              <div className="w-full mt-4">
+              <div className="w-full mt-3">
                 <button onClick={() => goToStep(3)} className="flex items-center gap-1.5 text-verde/60 font-sans font-medium px-5 py-3 rounded-full border-2 border-verde/20 hover:border-verde/40 transition-colors">
                   <ArrowLeft size={16} />Volver
                 </button>
