@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import dynamic from "next/dynamic";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
@@ -70,6 +70,8 @@ export default function DonaPage() {
   const [email, setEmail] = useState("");
   const [paymentMethod, setPaymentMethod] = useState<"card" | "transfer" | null>(null);
   const [copied, setCopied] = useState(false);
+  const [displayCount, setDisplayCount] = useState(0);
+  const [msgCopied, setMsgCopied] = useState(false);
 
   const TRANSFER_TEXT =
 `Titular: Corporación Escuchar
@@ -91,6 +93,33 @@ Mail: contacto@corporacionescuchar.cl`;
   const overflowCount = effectiveSeats > 12 ? effectiveSeats - 12 : 0;
 
   const canContinueStep3 = name.trim().length > 1 && email.trim().includes("@");
+
+  // Contador animado para el paso 5
+  useEffect(() => {
+    if (step !== 5) return;
+    setDisplayCount(0);
+    let i = 0;
+    const tick = setInterval(() => {
+      i++;
+      setDisplayCount(i);
+      if (i >= effectiveSeats) clearInterval(tick);
+    }, effectiveSeats > 5 ? 120 : 250);
+    return () => clearInterval(tick);
+  }, [step, effectiveSeats]);
+
+  const waText =
+    `Hoy hice algo que me llenó el corazón 💚\n\n` +
+    `Abrí ${effectiveSeats} espacio${effectiveSeats !== 1 ? "s" : ""} para que personas en Chile sean escuchadas de verdad. ` +
+    `Se llama Corporación Escuchar, y es de las cosas más bonitas que he podido hacer.\n\n` +
+    `¿Te sumas? → corporacionescuchar.cl`;
+
+  const waMessage = encodeURIComponent(waText);
+
+  const handleCopyMsg = () => {
+    navigator.clipboard.writeText(waText);
+    setMsgCopied(true);
+    setTimeout(() => setMsgCopied(false), 2500);
+  };
 
   return (
     <>
@@ -416,40 +445,120 @@ Mail: contacto@corporacionescuchar.cl`;
             </div>
           )}
 
-          {/* ══ PASO 5 — Confirmación ══ */}
+          {/* ══ PASO 5 — Experiencia de gracias ══ */}
           {step === 5 && (
-            <div className="flex flex-col items-center text-center">
-              <div className="w-16 h-16 rounded-full bg-terracota/15 flex items-center justify-center mb-4">
-                <Check size={30} className="text-terracota" strokeWidth={2.5} />
-              </div>
-              <h1 className="font-heading text-3xl md:text-4xl text-verde leading-tight mb-2">
-                ¡Gracias, {name.split(" ")[0]}!
-              </h1>
-              {paymentMethod === "transfer" ? (
-                <p className="text-verde/60 font-sans text-sm leading-relaxed mb-5 max-w-sm">
-                  Recibimos tu aviso. Verificaremos la transferencia de{" "}
-                  <strong className="text-verde">{fmt(total)}</strong> y te confirmaremos por correo a <strong className="text-verde">{email}</strong> cuando se valide tu aporte.
-                </p>
-              ) : (
-                <p className="text-verde/60 font-sans text-sm leading-relaxed mb-5 max-w-sm">
-                  Tu aporte de <strong className="text-verde">{fmt(total)}</strong>{" "}
-                  {frequency === "monthly" ? "mensual" : "único"} está confirmado.{" "}
-                  A fin de mes te escribiremos con los nombres de las personas que escuchaste.
-                </p>
-              )}
+            <div className="flex flex-col items-center">
 
-              <div className="w-full bg-white rounded-2xl p-5 shadow-sm border border-verde/10 mb-5 text-left">
-                <div className="grid grid-cols-2 gap-3">
-                  <div><div className="text-[10px] text-verde/40 font-sans uppercase tracking-widest mb-1">Espacios</div><div className="font-heading font-bold text-xl text-verde">{effectiveSeats}</div></div>
-                  <div><div className="text-[10px] text-verde/40 font-sans uppercase tracking-widest mb-1">Monto</div><div className="font-heading font-bold text-xl text-terracota">{fmt(total)}</div></div>
-                  <div><div className="text-[10px] text-verde/40 font-sans uppercase tracking-widest mb-1">Tipo</div><div className="font-sans font-medium text-verde text-sm">{frequency === "monthly" ? "Mensual" : "Donación única"}</div></div>
-                  <div><div className="text-[10px] text-verde/40 font-sans uppercase tracking-widest mb-1">Confirmación a</div><div className="font-sans text-verde/70 text-sm truncate">{email}</div></div>
+              {/* ── Momento 1: Celebración ── */}
+              <div className="flex flex-col items-center text-center mb-8">
+                {/* Círculo con asientos del donante encendidos */}
+                <div className="w-52 h-52 mb-4">
+                  <CircleOfChairs litCount={effectiveSeats} size={208} radius={76} totalSeats={12} />
                 </div>
+
+                {/* Contador animado */}
+                <div className="flex items-baseline gap-2 mb-1">
+                  <span className="font-heading text-7xl font-bold text-terracota tabular-nums leading-none">
+                    {displayCount}
+                  </span>
+                  <span className="font-heading text-2xl text-verde/60 font-medium">
+                    espacio{displayCount !== 1 ? "s" : ""}
+                  </span>
+                </div>
+                <p className="text-verde/50 font-sans text-sm mb-4">
+                  abierto{displayCount !== 1 ? "s" : ""} por ti este mes
+                </p>
+
+                <h1 className="font-heading text-2xl md:text-3xl text-verde leading-tight mb-2">
+                  ¡Gracias, {name.split(" ")[0]}!
+                </h1>
+
+                {paymentMethod === "transfer" ? (
+                  <p className="text-verde/55 font-sans text-sm leading-relaxed max-w-xs">
+                    Verificaremos tu transferencia y te confirmaremos por correo a{" "}
+                    <strong className="text-verde">{email}</strong>.
+                  </p>
+                ) : (
+                  <p className="text-verde/55 font-sans text-sm leading-relaxed max-w-xs">
+                    A fin de mes te escribiremos con los nombres de las personas que escuchaste.
+                  </p>
+                )}
               </div>
 
-              <a href="/" className="inline-flex items-center gap-2 bg-verde text-white font-sans font-medium px-8 py-3 rounded-full hover:opacity-90 transition-opacity">
-                Volver al inicio <ArrowRight size={16} />
-              </a>
+              {/* ── Momento 2: Tarjeta para compartir ── */}
+              <div className="w-full bg-[#18122B] rounded-3xl p-6 mb-6">
+                {/* Header de la card */}
+                <div className="flex items-center gap-2 mb-5">
+                  <div className="w-5 h-5 rounded-full bg-[#1CBF45] flex items-center justify-center shrink-0">
+                    <svg viewBox="0 0 14 14" className="w-3 h-3" fill="none">
+                      <path d="M2 9 A5 5 0 1 1 12 9" stroke="white" strokeWidth="2" strokeLinecap="round" fill="none"/>
+                    </svg>
+                  </div>
+                  <span className="text-white/70 font-sans text-xs tracking-widest uppercase">Corporación Escuchar</span>
+                </div>
+
+                <p className="text-white font-heading text-xl leading-snug mb-2">
+                  "Hoy hice algo muy bonito.{" "}
+                  <span className="text-terracota">Te invito a hacerlo también.</span>"
+                </p>
+                <p className="text-white/40 font-sans text-sm mb-6">— {name.split(" ")[0]}</p>
+
+                {/* WhatsApp */}
+                <a
+                  href={`https://wa.me/?text=${waMessage}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-full flex items-center justify-center gap-2.5 bg-[#25D366] hover:bg-[#1EB855] text-white font-sans font-semibold py-3.5 rounded-2xl transition-colors mb-3"
+                >
+                  <svg viewBox="0 0 24 24" className="w-5 h-5" fill="currentColor">
+                    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+                  </svg>
+                  Invitar a donar
+                </a>
+
+                <button
+                  onClick={handleCopyMsg}
+                  className={`w-full flex items-center justify-center gap-2 py-3 rounded-2xl font-sans font-medium text-sm transition-all border ${
+                    msgCopied
+                      ? "bg-green-900/30 border-green-500/40 text-green-400"
+                      : "bg-white/6 border-white/15 text-white/60 hover:text-white hover:bg-white/10"
+                  }`}
+                >
+                  {msgCopied ? <><CheckCheck size={15} /> Mensaje copiado</> : <><Copy size={15} /> Copiar mensaje</>}
+                </button>
+              </div>
+
+              {/* ── Momento 3: Testimonio + loop ── */}
+              <div className="w-full mb-6">
+                <div className="bg-white rounded-2xl border border-verde/10 px-5 py-5 mb-4">
+                  <div className="text-verde/30 font-heading text-3xl leading-none mb-2">"</div>
+                  <p className="text-verde font-sans text-sm leading-relaxed italic mb-3">
+                    No vine buscando terapia. Vine porque ya no sabía a quién contarle. Ese lunes cambió algo en mí que no supe nombrar hasta semanas después.
+                  </p>
+                  <div className="text-verde/40 font-sans text-xs">— Jorge, participante de un Círculo de Escucha</div>
+                </div>
+                <p className="text-verde/50 font-sans text-sm text-center">
+                  ¿Conoces a alguien que necesite esto?<br />
+                  <span className="text-verde font-medium">Comparte y abre más círculos.</span>
+                </p>
+              </div>
+
+              {/* CTAs finales */}
+              <div className="w-full flex flex-col gap-3">
+                <a
+                  href="/dona"
+                  className="w-full flex items-center justify-center gap-2 bg-terracota hover:bg-terracota-dark text-white font-sans font-semibold py-3.5 rounded-full transition-colors shadow-lg shadow-terracota/20"
+                >
+                  <Gift size={16} /> Abrir más espacios
+                </a>
+                <a
+                  href="/"
+                  className="w-full flex items-center justify-center gap-2 text-verde/60 font-sans font-medium py-3 rounded-full border-2 border-verde/20 hover:border-verde/40 transition-colors"
+                >
+                  Volver al inicio
+                </a>
+              </div>
+
             </div>
           )}
         </div>
