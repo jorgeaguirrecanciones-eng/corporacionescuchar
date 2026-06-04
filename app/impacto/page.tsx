@@ -224,42 +224,10 @@ export default function ImpactoPage() {
       <Navbar />
       <main className="bg-white min-h-screen">
 
-        {/* ── Hero ── */}
-        <section className="bg-beige pt-16 pb-12">
-          <div className="max-w-6xl mx-auto px-4 sm:px-6">
-            <div className="max-w-2xl mb-10">
-              <p className="text-xs font-sans font-semibold tracking-widest uppercase text-terracota mb-3">
-                Impacto real
-              </p>
-              <h1 className="font-heading text-4xl md:text-5xl text-verde leading-tight mb-4">
-                Diez años escuchando Chile.<br />
-                <span className="text-terracota">Estas son las historias.</span>
-              </h1>
-              <p className="text-verde/60 font-sans text-lg leading-relaxed">
-                Cada número tiene nombre. Cada historia comenzó con alguien que regaló un asiento.
-              </p>
-            </div>
-
-            {/* Stats */}
-            <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
-              {stats.map((s) => (
-                <div
-                  key={s.value}
-                  className="rounded-2xl p-5 text-center"
-                  style={{ backgroundColor: s.bg }}
-                >
-                  {s.prefix && <p className={`font-sans text-xs mb-0.5 ${s.dark ? "text-black/50" : "text-white/70"}`}>{s.prefix}</p>}
-                  <p className={`font-heading text-3xl font-bold mb-1 ${s.dark ? "text-black/80" : "text-white"}`}>{s.value}</p>
-                  <p className={`text-xs font-sans leading-snug ${s.dark ? "text-black/60" : "text-white/80"}`}>{s.label}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
 
         {/* ── Featured ── */}
         {featured && (
-          <section className="max-w-6xl mx-auto px-4 sm:px-6 py-12">
+          <section className="max-w-6xl mx-auto px-4 sm:px-6 pt-10 pb-4">
             <FeaturedCard post={featured} onClick={() => setSelectedPost(featured)} />
           </section>
         )}
