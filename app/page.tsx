@@ -4,7 +4,7 @@ import Hero from "@/components/home/Hero";
 import WhatIsACircle from "@/components/home/WhatIsACircle";
 import WhatYouMakePossible from "@/components/home/WhatYouMakePossible";
 import HowItWorks from "@/components/home/HowItWorks";
-import ImpactSection from "@/components/home/ImpactSection";
+import ImpactPreview from "@/components/home/ImpactPreview";
 import Testimonials from "@/components/home/Testimonials";
 import ClosingCTA from "@/components/home/ClosingCTA";
 
@@ -17,7 +17,7 @@ export default function HomePage() {
         <WhatIsACircle />
         <WhatYouMakePossible />
         <HowItWorks />
-        <ImpactSection />
+        <ImpactPreview />
         <Testimonials />
         <ClosingCTA />
       </main>
