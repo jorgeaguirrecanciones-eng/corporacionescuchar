@@ -81,6 +81,15 @@
   }
 }
 
+@keyframes marquee-left {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-33.333%); }
+}
+@keyframes marquee-right {
+  from { transform: translateX(-33.333%); }
+  to   { transform: translateX(0); }
+}
+
 @layer utilities {
   .font-heading {
     font-family: var(--font-fraunces), Georgia, serif;

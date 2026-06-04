@@ -5,6 +5,7 @@ import WhatIsACircle from "@/components/home/WhatIsACircle";
 import WhatYouMakePossible from "@/components/home/WhatYouMakePossible";
 import HowItWorks from "@/components/home/HowItWorks";
 import ImpactSection from "@/components/home/ImpactSection";
+import Testimonials from "@/components/home/Testimonials";
 import ClosingCTA from "@/components/home/ClosingCTA";
 
 export default function HomePage() {
@@ -17,6 +18,7 @@ export default function HomePage() {
         <WhatYouMakePossible />
         <HowItWorks />
         <ImpactSection />
+        <Testimonials />
         <ClosingCTA />
       </main>
       <Footer />
