@@ -20,7 +20,7 @@ const MPCardBrick = dynamic(() => import("@/components/MPCardBrick"), {
   ),
 });
 
-const SEAT_PRICE = 7000;
+const SEAT_PRICE = 400; // 🧪 PRECIO DE PRUEBA — volver a 7000 en producción
 const PRESETS = [1, 2, 3, 5, 10];
 
 type Frequency = "monthly" | "once";
