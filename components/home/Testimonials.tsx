@@ -1,3 +1,5 @@
+"use client";
+
 const testimonials = [
   { name: "Karla", age: 51, quote: "Me llevo autoestima, lo que me pasa no es sólo mío." },
   { name: "Vivi", age: 55, quote: "La solidaridad de esta familia escogida." },
