@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import { initMercadoPago, CardPayment } from "@mercadopago/sdk-react";
 import { AlertCircle, Lock } from "lucide-react";
 
-const MP_PUBLIC_KEY = "TEST-4369a527-cb76-41aa-9450-110f03b83319";
+const MP_PUBLIC_KEY = "APP_USR-a28e6a89-8096-44cd-b59a-a46e97854d86";
 
 interface Props {
   amount: number;
